@@ -1,0 +1,47 @@
+PROCEDURE reportScript
+.///////////////////////////////////////////////////////////////////////////////
+.// Procedure: BackupMapping
+.// Author: Greg Parsons
+.// This procedure creates a backup CSV of the current mapping table so it can 
+.// be restored later if required. 
+.// 
+.///////////////////////////////////////////////////////////////////////////////
+API_START
+DEFAULT backupfilename='mapbackup.csv'
+_STORAGE='entity'
+READ STORAGE
+PROJECT #_apiLibrary
+MODEL 'MappingTable'
+OPEN DOS #backupfilename READ
+WHEN _READEXIST
+	CLOSE DOS READ
+	DELETE DOS #backupfilename
+	COPYHTML Old Backup Deleted</BR>
+ENDWHEN
+OPEN DOS #backupfilename WRITE
+nr=getLeaves('Entity','entitylist')
+... load all the data from the trasnaction model into list variables
+reccnt=0
+FOR entcnt,1,nr,1
+	curentity=entitylist[entcnt]
+	LOCATE 'Entity' SELECT #curentity
+	READ MEMORY 'All'
+	EXTcode=SERIES1
+	EXTFullAccount=SERIES2
+	EXTAccount=SERIES3
+	CCOAcode=SERIES4
+	nritems=ITEMSINFO('SERIES1','ITEMS')
+	FOR icnt,1,nritems,1
+		line=concat(curentity,',',EXTcode[icnt],',',EXTFullAccount[icnt],',',EXTAccount[icnt],',',CCOAcode[icnt])
+		WRITE DOS line
+		reccnt=reccnt+1
+	ENDFOR
+ENDFOR
+CLOSE DOS
+msg=concat(reccnt,' records written to Mapping Table backup file','</BR>')
+COPYHTML #msg
+API_END
+RETURN
+
+	
+	

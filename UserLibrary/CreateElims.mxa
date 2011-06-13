@@ -1,0 +1,97 @@
+﻿PROCEDURE reportScript
+.///////////////////////////////////////////////////////////////////////////////
+.// Procedure: CreateElims
+.// Author: Greg Parsons
+.// This procedure creates the measure logic for the Eliminations model using
+.// the detail in the CommonCOA table. 
+.// 
+.///////////////////////////////////////////////////////////////////////////////
+API_START
+... initial list arrays used to store the COA data
+DEFAULT accname[1]=' '
+DEFAULT accsection[1]=' '
+DEFAULT acctype[1]=' '
+DEFAULT accparent[1]=' '
+DEFAULT accflag[1]=0
+.// These are the default settings for idump and reset
+.// to change these edit the deafults.ini file in the projects USERDATA folder
+.// set idump = 1 if you require additional information dumped when the script 
+.//               is run
+.// set ireset = 1 if you want the script to delete all existing measures and
+.//               rebuild from scratch (useful if you need to delete and start
+.//               again
+DEFAULT idump=0
+DEFAULT ireset=1
+.// retrieve the seclist, bsslist and pnllist arrays
+_STORAGE='sections'
+READ STORAGE
+_STORAGE='defaults'
+READ STORAGE
+DEFAULT curtransacc='6999 - Currency Translation Expense'
+PROJECT #_apiLibrary
+MODEL 'CommonCOA'
+... load all the data from the trasnaction model into list variables
+READ MEMORY 'All'
+accname=SERIES3
+accsection=SERIES4
+acctype=SERIES5
+accparent=SERIES6
+accflag=SERIES8
+nritems=ITEMSINFO('accname','ITEMS')
+...
+... create Profit and Loss Measures List
+...
+mcount=0
+curtransexp=' '
+quot='''
+...loop through each account to determine the items which are DETAIL items 
+... only details items need outputting as valid measures for eliminations
+FOR j,1,nritems,1
+    ... loop through finding all accounts belonging to this section
+    WHEN lowercase(acctype[j]) EQ 'detail' and lowercase(accname[j]) NE lowercase(curtransacc)
+            mcount=mcount+1
+            measurelist[mcount]=accname[j]
+            mhide[mcount]='showData'
+            mbold[mcount]=0
+            mexpression[mcount]=' '
+            SWITCH
+                CASE accflag[j] EQ 1
+                        curtransexp=concat(curtransexp,'-',quot,accname[j],quot)
+                CASE accflag[j] EQ -1
+                        curtransexp=concat(curtransexp,'+',quot,accname[j],quot)
+            ENDSWITCH
+    ENDWHEN
+ENDFOR
+... Create the eliminations model
+PROJECT #_apiLibrary
+MODEL 'Eliminations'
+oldlist=_MODELMEASURES
+oldcnt=ITEMSINFO('oldlist','ITEMS')
+savoldcnt=oldcnt
+savstr=oldlist[1]
+oldlist[1]=''
+api_measure
+	with dimension = 'measure'
+	with option = 'DELETE'
+	with sourcemember = oldlist
+DELETE variable oldlist
+oldlist[1]=savstr
+oldcnt=1
+api_measure
+     with dimension = 'measure'
+     with option = 'ADD'
+     with sourceMember = measurelist
+     with expression = mexpression
+     with hide = mhide
+     with measureBold = mbold
+api_measure
+     with dimension = 'consolidated'
+     with option = 'ADD'
+     with sourceMember = curtransacc
+     with expression = curtransexp
+msg1=concat('Eliminations Model Created</BR>')
+msg2=concat(mcount,' New Measures have been added</BR>')
+COPYHTML #msg1
+COPYHTML #msg2
+API_END
+RETURN

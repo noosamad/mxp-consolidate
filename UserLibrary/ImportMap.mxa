@@ -1,0 +1,23 @@
+PROCEDURE reportScript
+API_START
+filename='singmap.csv'
+OPEN DOS #filename
+recs=0
+WHILE _READEXIST
+	READ DOS line
+	recs=recs+1
+	series0[recs]=0
+	series1[recs]=PARSECSV(line,'TEXT',1)
+	series2[recs]=PARSECSV(line,'TEXT',2)
+	series3[recs]=PARSECSV(line,'TEXT',3)
+	series4[recs]=PARSECSV(line,'TEXT',4)
+ENDWHILE
+CLOSE DOS
+PROJECT #_apiLibrary
+MODEL 'MappingTable' WRITE
+LOCATE 'Entity' SELECT 'MXP Singapore'
+WRITE MEMORY 'All'
+msg=concat(recs,' Records processed')
+COPYHTML #msg
+API_END
+RETURN

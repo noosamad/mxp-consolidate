@@ -1,0 +1,130 @@
+﻿PROCEDURE reportScript
+.///////////////////////////////////////////////////////////////////////////////
+.// Procedure: CreateCCOAtable
+.// Author: Greg Parsons
+.// This procedure reads the CommonCOA.csv and writes it to a transactional
+.// model (CommonCOA) which is the master table used to drive the model
+.// generation programs.
+.// 
+.///////////////////////////////////////////////////////////////////////////////
+API_START
+DEFAULT recignorelist[1]=1
+DEFAULT series1[1]=' '
+DEFAULT series2[1]=' '
+DEFAULT series3[1]=' '
+DEFAULT series4[1]=' '
+DEFAULT series5[1]=' '
+DEFAULT series6[1]=' '
+DEFAULT series7[1]=' '
+DEFAULT series8[1]=1
+DEFAULT series0[1]=0
+DEFAULT seclist[1]='EMPTY'
+DEFAULT bsseclist[1]='EMPTY'
+DEFAULT pnlseclist[1]='EMPTY'
+DEFAULT idump=0
+DEFAULT filename='CommonCOA.csv'
+project #_apiLibrary
+model 'CommonCOA' write
+.// Delete existing details
+API_TRANSACTIONMODEL
+	with option = 'CLEAR'
+	with sourceProject = #_apiLibrary
+	with sourceModel='CommonCOA'
+.// Read the CSV and split each record into its component parts
+OPEN DOS filename
+i=0
+precs=0
+seccnt=0
+pnlcnt=0
+bscnt=0
+WHILE _READEXIST
+    READ DOS line
+    i=i+1
+    SWITCH
+        CASE inlist(i,'recignorelist',1,'MATCH') GT 0
+            COPYHTML Record No 
+            COPYHTML #i
+            COPYHTML  Skipped </br>
+        OTHERWISE
+            accounttype=PARSECSV(line,'TEXT',5)
+            accountcode=PARSECSV(line,'TEXT',1)
+            accountsect=PARSECSV(line,'TEXT',4)
+            accountdesc=PARSECSV(line,'TEXT',2)
+            accountcatg=PARSECSV(line,'TEXT',3)
+            accountpare=PARSECSV(line,'TEXT',6)
+	    accountflag=PARSECSV(line,'VALUE',7)
+	    accountname=concat(accountcode,' - ',accountdesc)
+.// This next section just dumps the record details out and is only produced
+.// when idump=1 (idump can be changed to 1 in the default settings a the
+.// beginning of this routine
+		WHEN idump EQ 1
+                 	COPYHTML Record No 
+                 	COPYHTML #i
+                 	COPYHTML  Type is 
+                 	COPYHTML #accounttype
+                 	COPYHTML , Account Name is 
+                 	COPYHTML #accountname
+                 	COPYHTML , Account Category is 
+                 	COPYHTML #accountcatg
+                 	COPYHTML , Account Code is  
+                 	COPYHTML #accountcode
+                 	COPYHTML , Account Section is  
+                 	COPYHTML #accountsect
+                 	COPYHTML , Description is  
+                 	COPYHTML #accountdesc
+                 	COPYHTML , Parent is
+                 	COPYHTML #accountpare
+                 	COPYHTML , Flag is
+                 	COPYHTML #accountflag                    
+                 	COPYHTML </br>
+                 ENDWHEN
+            precs=precs+1
+            series0[precs]=0
+            series1[precs]=accountcode
+            series2[precs]=accountdesc
+            series3[precs]=accountname
+            series4[precs]=accountsect
+            series5[precs]=accounttype
+            series6[precs]=accountpare
+            series7[precs]=accountcatg
+	    series8[precs]=accountflag
+	    .// Now add to the seclist, bsseclist and pnlseclist lists if not there yet
+	    yflag=INLIST(accountsect,'seclist',1,'MATCH')
+	    WHEN yflag EQ 0
+	    	seccnt=seccnt+1
+	    	seclist[seccnt]=accountsect
+	    ENDWHEN
+	    SWITCH
+	    	CASE accountcatg EQ 'BS'
+	    		yflag=INLIST(accountsect,'bsseclist',1,'MATCH')
+	    		WHEN yflag EQ 0
+	    			bscnt=bscnt+1
+	    			bsseclist[bscnt]=accountsect
+	    		ENDWHEN	
+	    	CASE accountcatg EQ 'PL'
+	    		yflag=INLIST(accountsect,'pnlseclist',1,'MATCH')
+	    		WHEN yflag EQ 0
+	    			pnlcnt=pnlcnt+1
+	    			pnlseclist[pnlcnt]=accountsect
+	    		ENDWHEN	
+	    	OTHERWISE
+	    		COPYHTML ***ERROR RECORD No 
+	    		COPYHTML #i
+	    		COPYHTML  does not have a valid category code
+	    		COPYHTML </br>
+	    ENDSWITCH
+    ENDSWITCH
+ENDWHILE
+project #_apiLibrary
+model 'CommonCOA' write
+WRITE MEMORY 1-#precs
+COPYHTML Common Chart of Accounts Table created in CommonCOA
+COPYHTML </br>
+COPYHTML Number of Records Processed 
+COPYHTML #precs
+.// Now create the sections.ini file
+_STORAGE='sections'
+DELETE STORAGE
+WRITE STORAGE variables seclist,bsseclist,pnlseclist
+API_END
+RETURN

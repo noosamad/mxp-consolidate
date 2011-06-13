@@ -1,0 +1,76 @@
+PROCEDURE reportScript
+.//This script reads the 'Chart of Account' files for each company and writes
+.//them to the 'Mapping Table' for each entity. The Mapping Table is used to map
+.//the data for each entity to the common chart of accounts used by the
+.//consolidation system. Note that this routine is only used to load the
+.//accounts into the transaction table and deos not build the mapping, 
+.//this must be done manually
+.//
+.//Each entity file is a csv consisting of three columns:
+.// Column 1 - Full Account Name including account number
+.// Column 2 - Account Type (e.g. Bank, Fixed Asset etc)
+.// Column 3 - Account Number
+.// For QB files used in this example the Full Account Name contains a special
+.// non-UTF8 character '·' which is replaced with a '-'. In QB the full
+.// description includes parent account strings which are not used by the
+.// movement data file produced from QB and must therefore be stripped.
+.// e.g The account '6390 · Utilities:6400 · Gas and Electric'
+.//     will be processed to become '6400 - Gas and Electric'
+.// The Account Type field is not used and is there for reference only, as the 
+.// CCOA account it is mapped to will have an account type associated with it.
+API_START
+_STORAGE='entity'
+READ STORAGE
+EntList=entity
+EntFile=entitycoafile
+EntProfile=entitydataprofile
+specchar='·'
+.// Delete existing details
+PROJECT #_apiLibrary
+MODEL 'MappingTable' WRITE
+API_TRANSACTIONMODEL
+	with option = 'CLEAR'
+	with sourceProject = #_apiLibrary
+	with sourceModel='MappingTable'
+CLOSE DATABASE
+.//Process Each Template file and load into Mapping Table
+FOR i,1,ITEMSINFO('EntList','ITEMS'),1
+	msg=concat('Processing COA List for Entity ',uppercase(EntList[i]),'</BR>')
+	STREAMHTML #msg
+	filename=EntFile[i]
+	entityname=EntList[i]
+	OPEN DOS #filename
+	recs=0
+	WHILE _READEXIST
+		READ DOS line
+		newline=stringreplace(line,specchar,'-')
+		WHEN PARSECSV(newline,'TEXT',1) NE 'Account'
+			recs=recs+1
+			series0[recs]=0
+			series1[recs]=PARSECSV(newline,'TEXT',3)
+			series2[recs]=PARSECSV(newline,'TEXT',1)
+			accdesc=PARSECSV(newline,'TEXT',1)
+			x=sizeof(accdesc)
+			y=instring(':',accdesc)
+				WHILE y GT 0 AND y LT x
+					y=y+1
+					decode accdesc into accdesc type text at y TO x
+					x=sizeof(accdesc)
+					y=instring(':',accdesc)
+				ENDWHILE
+			series3[recs]=accdesc
+			series4[recs]=' '
+		ENDWHEN
+	ENDWHILE
+	CLOSE DOS
+	PROJECT #_apiLibrary
+	MODEL 'MappingTable' WRITE
+	LOCATE 'Entity' SELECT #entityname
+	WRITE MEMORY 1-#recs
+	CLOSE DATABASE
+	msg=concat(recs,' Records Processed and added</BR>')
+	STREAMHTML #msg
+ENDFOR
+CLOSE DATABASE
+API_END
+RETURN

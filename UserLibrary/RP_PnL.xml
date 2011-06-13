@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="report.xsl"?>
+<reporter>
+<grid gridlines="false">
+</grid>
+<grid headers="false">
+</grid>
+<cell row="1" col="1">
+<t bold="true">'ABC GROUP - PROFIT AND LOSS CONSOLIDATION (SUMMARY)</t>
+</cell>
+<cell row="3" col="1">
+<t>'ENTITY</t>
+</cell>
+<select name="MaxiDD_Entity1" row="3" col="2" width="150.000000">
+<o selected="true">ABC AUSTRALIA</o>
+<o>ABC CONSOLIDATED</o>
+<o>ABC GROUP</o>
+<o>ABC GROUP ELIMINATION</o>
+<o>ABC HONG KONG</o>
+<o>ABC SINGAPORE</o>
+</select>
+<cell row="4" col="1">
+<t>'CURRENCY</t>
+</cell>
+<select name="MaxiDD_Currency2" row="4" col="2" width="150.000000">
+<o>AUD</o>
+<o>GBP</o>
+<o>SGD</o>
+<o selected="true">USD</o>
+</select>
+<cell row="5" col="1">
+<t>'REPORT TYPE</t>
+</cell>
+<select name="MaxiDD_MXO_3" row="5" col="2" width="150.000000" answer="repselect">
+<o>DETAILED</o>
+<o selected="true">SUMMARY</o>
+</select>
+<grid>
+<colwidth col="1">250.000000</colwidth>
+</grid>
+<grid>
+<colwidth scol="2" ecol="10">100.000000</colwidth>
+</grid>
+<continuous row="6" col="1">
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT"></t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Jan-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Feb-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Mar-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Apr-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">May-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Jun-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Jul-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Aug-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Sep-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Oct-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Nov-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">Dec-2011</t>
+<t bgcolor="#ffd700" fonttype="ARIEL" fontsize="12" bold="true" align="RIGHT">YR-2011</t>
+</continuous>
+</reporter>

@@ -1,0 +1,149 @@
+AccountCode,Description,Account Name,Section,Type
+1000,Cash at Bank,1000 - Cash at Bank,Bank,Summary
+1001,Local Bank Account 1,1001 - Local Bank Account 1,Bank,Detail
+1002,Local Bank Account 2,1002 - Local Bank Account 2,Bank,Detail
+1010,USD Bank Account 1,1010 - USD Bank Account 1,Bank,Detail
+1011,USD Bank Account 2,1011 - USD Bank Account 2,Bank,Detail
+1090,Petty Cash Account,1090 - Petty Cash Account,Bank,Detail
+1099,Cash Suspense,1099 - Cash Suspense,Bank,Detail
+1200,Debtors,1200 - Debtors,Accounts Receivable,Summary
+1210,Trade Debtors,1210 - Trade Debtors,Accounts Receivable,Detail
+1220,Other Debtors,1220 - Other Debtors,Accounts Receivable,Detail
+1310,Prepayments,1310 - Prepayments,Other Current Asset,Detail
+1320,Advance Payments,1320 - Advance Payments,Other Current Asset,Detail
+1330,Employee Advances,1330 - Employee Advances,Other Current Asset,Detail
+1340,Deposits,1340 - Deposits,Other Current Asset,Detail
+1400,Directors Loans,1400 - Directors Loans,Other Current Assets,Summary
+1410,G C Parsons,1410 - G C Parsons,Other Current Assets,Detail
+1420,G Wilk,1420 - G Wilk,Other Current Assets,Detail
+1430,T Lo,1430 - T Lo,Other Current Assets,Detail
+1490,Directors Loans - Non Specific,1490 - Directors Loans - Non Specific,Other Current Assets,Detail
+1500,Loans To Affiliates,1500 - Loans To Affiliates,Other Current Assets,Summary
+1510,Maxiplan Australia,1510 - Maxiplan Australia,Other Current Assets,Detail
+1520,Maxiplan HK,1520 - Maxiplan HK,Other Current Assets,Detail
+1530,Maxiplan Singapore,1530 - Maxiplan Singapore,Other Current Assets,Detail
+1540,Maxiplan UK,1540 - Maxiplan UK,Other Current Assets,Detail
+1590,Undeposited Funds,1590 - Undeposited Funds,Other Current Assets,Detail
+1600,Office Equipment,1600 - Office Equipment,Fixed Asset,Summary
+1610,Office Equip - At Cost,1610 - Office Equip - At Cost,Fixed Asset,Detail
+1620,Office Equip - Accum Depn,1620 - Office Equip - Accum Depn,Fixed Asset,Detail
+1700,Computers,1700 - Computers,Fixed Asset,Summary
+1710,Computers - At Cost,1710 - Computers - At Cost,Fixed Asset,Detail
+1720,Computers - Accum Depn,1720 - Computers - Accum Depn,Fixed Asset,Detail
+1800,Fixtures & Fittings,1800 - Fixtures & Fittings,Fixed Asset,Summary
+1810,Fixtures - At Cost,1810 - Fixtures - At Cost,Fixed Asset,Detail
+1820,Fixtures - Accum Depn,1820 - Fixtures - Accum Depn,Fixed Asset,Detail
+2000,Creditors,2000 - Creditors,Accounts Payable,Summary
+2010,Trade Creditors,2010 - Trade Creditors,Accounts Payable,Detail
+2020,Other Creditors,2020 - Other Creditors,Accounts Payable,Detail
+2100,Loans From Affiliates,2100 - Loans From Affiliates,Other Current Liability,Summary
+2110,Loans - Maxiplan Australia,2110 - Loans - Maxiplan Australia,Other Current Liability,Detail
+2120,Loans - Maxiplan HK,2120 - Loans - Maxiplan HK,Other Current Liability,Detail
+2130,Loans - Maxiplan Singapore,2130 - Loans - Maxiplan Singapore,Other Current Liability,Detail
+2140,Loans - Maxiplan UK,2140 - Loans - Maxiplan UK,Other Current Liability,Detail
+2150,Loans - Satoluja,2150 - Loans - Satoluja,Other Current Liability,Detail
+2160,Loans - ITH,2160 - Loans - ITH,Other Current Liability,Detail
+2190,Loans from Affilites - Non Specific,2190 - Loans from Affilites - Non Specific,Other Current Liability,Detail
+2200,Directors Loans,2200 - Directors Loans,Other Current Liability,Summary
+2210,Loans - G C Parsons,2210 - Loans - G C Parsons,Other Current Liability,Detail
+2220,Loans - G Wilk,2220 - Loans - G Wilk,Other Current Liability,Detail
+2290,Loans - Directors Other,2290 - Loans - Directors Other,Other Current Liability,Detail
+2310,Prepaid Maintenance,2310 - Prepaid Maintenance,Other Current Liability,Detail
+2410,Payroll Liabilities,2410 - Payroll Liabilities,Other Current Liability,Detail
+2510,Accrued Expenses,2510 - Accrued Expenses,Other Current Liability,Detail
+2610,GST Control,2610 - GST Control,Other Current Liability,Detail
+2620,Taxation Payable,2620 - Taxation Payable,Other Current Liability,Detail
+2630,Deferred Taxation,2630 - Deferred Taxation,Other Current Liability,Detail
+3000,Equity,3000 - Equity,Equity,Summary
+3100,Opening Balance Equity,3100 - Opening Balance Equity,Equity,Detail
+3200,Share Capital,3200 - Share Capital,Equity,Detail
+3300,Retained Earnings,3300 - Retained Earnings,Equity,Detail
+3400,Share Premium,3400 - Share Premium,Equity,Detail
+4000,Income,4000 - Income,Income,Summary
+4010,Software Licence Fees,4010 - Software Licence Fees,Income,Detail
+4020,Support and Upgrade Fees,4020 - Support and Upgrade Fees,Income,Detail
+4030,Consultancy and Development,4030 - Consultancy and Development,Income,Detail
+4040,Consulting Expenses Recovery,4040 - Consulting Expenses Recovery,Income,Detail
+4050,Miscellaneous Income,4050 - Miscellaneous Income,Income,Detail
+5000,Cost of Goods Sold,5000 - Cost of Goods Sold,Cost of Goods Sold,Summary
+5010,Software Licence Costs,5010 - Software Licence Costs,Cost of Goods Sold,Detail
+5015,Upgrade and Support Costs,5015 - Upgrade and Support Costs,Cost of Goods Sold,Detail
+5020,Subcontractor Fees,5020 - Subcontractor Fees,Cost of Goods Sold,Detail
+5050,Sales Commissions,5050 - Sales Commissions,Cost of Goods Sold,Detail
+5060,Third Party Sales Commission,5060 - Third Party Sales Commission,Cost of Goods Sold,Detail
+6000,Expenses,6000 - Expenses,Expenses,Summary
+6100,Salary and Benefits,6100 - Salary and Benefits,Expenses,Summary
+6110,Salaries & Allowances,6110 - Salaries & Allowances,Expenses,Detail
+6120,Bonuses,6120 - Bonuses,Expenses,Detail
+6130,Superannuation,6130 - Superannuation,Expenses,Detail
+6140,Medical,6140 - Medical,Expenses,Detail
+6150,Staff Training and Development,6150 - Staff Training and Development,Expenses,Detail
+6160,Recruitment Costs,6160 - Recruitment Costs,Expenses,Detail
+6170,Insurances - HR Related,6170 - Insurances - HR Related,Expenses,Detail
+6180,Contracted Services,6180 - Contracted Services,Expenses,Detail
+6190,Payroll Expenses,6190 - Payroll Expenses,Expenses,Detail
+6200,Occupancy,6200 - Occupancy,Expenses,Summary
+6210,Rent,6210 - Rent,Expenses,Detail
+6215,Rates,6215 - Rates,Expenses,Detail
+6220,Utilities,6220 - Utilities,Expenses,Detail
+6230,Office Cleaning,6230 - Office Cleaning,Expenses,Detail
+6240,Building Repairs & Maintenance,6240 - Building Repairs & Maintenance,Expenses,Detail
+6250,Management Fees,6250 - Management Fees,Expenses,Detail
+6260,Amenities,6260 - Amenities,Expenses,Detail
+6270,Insurance - Occupancy Related,6270 - Insurance - Occupancy Related,Expenses,Detail
+6290,Other Occupancy Costs,6290 - Other Occupancy Costs,Expenses,Detail
+6300,Office and Administrative,6300 - Office and Administrative,Expenses,Summary
+6310,Postage and Courier,6310 - Postage and Courier,Expenses,Detail
+6320,Office Supplies,6320 - Office Supplies,Expenses,Detail
+6330,Software Expense,6330 - Software Expense,Expenses,Detail
+6340,Computer Consumables,6340 - Computer Consumables,Expenses,Detail
+6350,Printing,6350 - Printing,Expenses,Detail
+6360,Equipment Repairs,6360 - Equipment Repairs,Expenses,Detail
+6370,Equipment Expenses & Rentals,6370 - Equipment Expenses & Rentals,Expenses,Detail
+6390,Other Office and Admin,6390 - Other Office and Admin,Expenses,Detail
+6400,Marketing and Promotion,6400 - Marketing and Promotion,Expenses,Summary
+6410,Client Entertainment,6410 - Client Entertainment,Expenses,Detail
+6420,Advertising,6420 - Advertising,Expenses,Detail
+6430,Seminar Costs,6430 - Seminar Costs,Expenses,Detail
+6440,Printing and Production,6440 - Printing and Production,Expenses,Detail
+6450,Design and Web costs,6450 - Design and Web costs,Expenses,Detail
+6460,Gifts & Donations,6460 - Gifts & Donations,Expenses,Detail
+6490,Other Marketing Costs,6490 - Other Marketing Costs,Expenses,Detail
+6500,Communication and Internet,6500 - Communication and Internet,Expenses,Summary
+6510,Telephone,6510 - Telephone,Expenses,Detail
+6520,Internet,6520 - Internet,Expenses,Detail
+6530,Postage & Delivery,6530 - Postage & Delivery,Expenses,Detail
+6600,Travel and Accommodation,6600 - Travel and Accommodation,Expenses,Summary
+6610,Airfares,6610 - Airfares,Expenses,Detail
+6620,Accommodation,6620 - Accommodation,Expenses,Detail
+6630,Transportation,6630 - Transportation,Expenses,Detail
+6640,Meals and Per Diem,6640 - Meals and Per Diem,Expenses,Detail
+6690,Other,6690 - Other,Expenses,Detail
+6700,Accounting & Legal,6700 - Accounting & Legal,Expenses,Summary
+6710,Accounting,6710 - Accounting,Expenses,Detail
+6720,Audit Costs,6720 - Audit Costs,Expenses,Detail
+6730,Disbursements,6730 - Disbursements,Expenses,Detail
+6740,Legal Fees,6740 - Legal Fees,Expenses,Detail
+6750,Licences & Permits,6750 - Licences & Permits,Expenses,Detail
+6760,Stamp Duties,6760 - Stamp Duties,Expenses,Detail
+6790,Other Acctg & Legal,6790 - Other Acctg & Legal,Expenses,Detail
+6800,Finance Costs,6800 - Finance Costs,Expenses,Summary
+6810,Bank Service Charges,6810 - Bank Service Charges,Expenses,Detail
+6820,Interest Expense,6820 - Interest Expense,Expenses,Detail
+6830,Depreciation Expense,6830 - Depreciation Expense,Expenses,Detail
+6900,Other Operational Expenses,6900 - Other Operational Expenses,Expenses,Summary
+6910,Books and Publications,6910 - Books and Publications,Expenses,Detail
+6920,Dues and Subscriptions,6920 - Dues and Subscriptions,Expenses,Detail
+6930,Cash Discounts,6930 - Cash Discounts,Expenses,Detail
+6940,Bad Debts,6940 - Bad Debts,Expenses,Detail
+6990,Miscellaneous Expenses,6990 - Miscellaneous Expenses,Expenses,Detail
+6995,Expenses Suspense,6995 - Expenses Suspense,Expenses,Detail
+7100,Other Non Operating Income,7100 - Other Non Operating Income,Other Income,Summary
+7110,Interest Income,7110 - Interest Income,Other Income,Detail
+7120,Other Income,7120 - Other Income,Other Income,Detail
+7200,Other Non Operating Expense,7200 - Other Non Operating Expense,Other Expense,Summary
+7210,Late Payment Fees,7210 - Late Payment Fees,Other Expense,Detail
+7220,Interest Expense - Non Operational,7220 - Interest Expense - Non Operational,Other Expense,Detail
+7230,Other Expense,7230 - Other Expense,Other Expense,Detail
+7240,Tax,7240 - Tax,Other Expense,Detail
+7250,Exchange Loss/(Gain),7250 - Exchange Loss/(Gain),Other Expense,Detail

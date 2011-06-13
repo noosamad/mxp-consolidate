@@ -1,0 +1,148 @@
+﻿PROCEDURE reportScript
+STARTREPORT
+API_START
+DEFAULT level=1
+DEFAULT reptype[1]='DETAILED'
+DEFAULT reptype[2]='SUMMARY'
+DEFAULT repselect=reptype[2]
+... initial list arrays used to store the COA data
+DEFAULT accname[1]=''
+DEFAULT accsection[1]=''
+DEFAULT acctype[1]=''
+DEFAULT accparent[1]=''
+.// retrieve the seclist, bsslist and pnllist arrays
+_STORAGE='sections'
+READ STORAGE
+PROJECT #_apiLibrary OWNER 'gparsons'
+MODEL 'CommonCOA'
+... load all the data from the trasnaction model into list variables
+READ MEMORY 'All'
+accname=SERIES3
+accsection=SERIES4
+acctype=SERIES5
+accparent=SERIES6
+nritems=ITEMSINFO('accname','ITEMS')
+PROJECT #_apiLibrary OWNER 'gparsons'
+MODEL 'Balance Sheet'
+reprows=_MODELMEASURES
+nrrows=ITEMSINFO('reprows','ITEMS')
+NOGRIDLINES
+NOHEADERS
+BOLD
+TEXT 'MAXIPLAN TECHNOLOGY GROUP - Balance Sheet CONSOLIDATION'
+TEXT repselect
+NOBOLD
+DOWN 'Measure'
+ACROSS 'Entity'
+TEXT 'YEAR'
+SAMELINE
+DROPLIST 'Period' WIDTH 150 DEFAULT 'YR 2010'
+DIFFERENTLINE
+TEXT 'CURRENCY'
+SAMELINE
+DROPLIST 'Currency' WIDTH 150 DEFAULT 'USD' CHOICE 'AUD','GBP','SGD','USD'
+DIFFERENTLINE
+TEXT 'REPORT TYPE' 
+SAMELINE
+DROPLIST 'MXO' WIDTH 150 CHOICE #reptype ANSWER 'repselect' DEFAULT 'DETAILED'
+DIFFERENTLINE
+level=INLIST(repselect,'reptype',1,'MATCH')-1
+COLUMNWIDTH 250,1
+COLUMNWIDTH 135,2-10
+STYLE REPORT FONT 'ARIEL' FONTSIZE 12 RIGHT
+STYLE DATA FONT 'ARIEL' FONTSIZE 12 DECIMALS 0
+STYLE HEADING BGCOLOR 'GOLD' RIGHT BOLD
+STYLE DESCRIPTION FONT 'ARIEL' FONTSIZE 12
+READ MEMORY 'All' 
+HEADINGS
+.DESCRIPTIONS 2
+cursection=' '
+nrcols=getMembers('Entity','Entitylist')
+FOR j,1,nrrows,1
+    curmeasure=reprows[j]
+    accno=INLIST(curmeasure,'accname',1,'MATCH')
+    omeasure=0
+    oskip=0
+    odata=0
+    WHEN accno GT 0.01
+        SWITCH
+            CASE accparent[accno] EQ cursection and level EQ 1
+                omeasure=1
+                obold=0
+                oindent=4
+                odata=1
+            CASE accparent[accno] EQ cursection and level EQ 0 AND uppercase(acctype[accno]) EQ 'DETAIL'
+                omeasure=1
+                obold=0
+                oindent=4
+                odata=1
+            CASE accparent[accno] EQ cursection and level EQ 0 AND uppercase(acctype[accno]) EQ 'SUMMARY'
+                omeasure=1
+                obold=1
+                oindent=4
+                odata=1
+            CASE uppercase(acctype[accno]) EQ 'DETAIL' AND level EQ 0
+                omeasure=1
+                obold=0
+                oindent=8
+                odata=1
+            CASE uppercase(acctype[accno]) EQ 'SUMMARY' AND level EQ 0
+                omeasure=1
+                obold=1
+                oindent=4
+                odata=1
+        ENDSWITCH
+    ELSE
+        SWITCH
+            CASE INLIST(curmeasure,'bsseclist',1,'MATCH') GT 0
+                    omeasure=1
+                    obold=1
+                    oindent=0
+                    odata=0
+                    oskip=0
+                    cursection=curmeasure            
+            CASE GetMeasureFormat(curmeasure,'HIDE') NE 1
+                    omeasure=1
+                    obold=1
+                    oindent=0
+                    odata=1
+                    oskip=1
+        ENDSWITCH
+    ENDWHEN
+    WHEN omeasure EQ 1
+        WHEN obold EQ 1
+            BOLD
+        ELSE
+            NOBOLD
+        ENDWHEN
+        omname=curmeasure
+        WHILE oindent GT 0
+            omname=concat(' ',omname)
+            oindent=oindent-1
+        ENDWHILE
+        COLOR 'BLACK'
+        LEFT
+        TEXT omname
+        RIGHT
+        WHEN odata EQ 1
+            SAMELINE
+            FORMAT '<<<9' FOR m
+            
+            FOR m,1,nrcols,1
+                dsname=concat('series',j)
+                FORMAT '<<<,<<<,<<9' FOR #dsname
+                WHEN ##dsname[m] LT 0
+                    COLOR 'RED'
+                ELSE 
+                    COLOR 'BLACK'
+                ENDWHEN
+                TEXT ##dsname[m]
+            ENDFOR
+            DIFFERENTLINE
+            SKIP #oskip
+        ENDWHEN
+    ENDWHEN
+ENDFOR
+API_END
+ENDREPORT
+RETURN

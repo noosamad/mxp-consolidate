@@ -1,0 +1,63 @@
+PROCEDURE reportScript
+.///////////////////////////////////////////////////////////////////////////////
+.// Procedure: RestoreMapping
+.// Author: Greg Parsons
+.// This procedure restores a backup CSV to the mapping table 
+.// 
+.///////////////////////////////////////////////////////////////////////////////
+API_START
+DEFAULT backupfilename='mapbackup.csv'
+_STORAGE='entity'
+READ STORAGE
+COPYHTML RESTORING MAPPING TABLE FROM BACKUP 
+COPYHTML #backupfilename
+COPYHTML </BR>
+PROJECT #_apiLibrary
+MODEL 'MappingTable' WRITE
+API_TRANSACTIONMODEL
+	with option = 'CLEAR'
+	with sourceProject = #_apiLibrary
+	with sourceModel='MappingTable'
+OPEN DOS #backupfilename READ
+reccnt=0
+seccnt=0
+secentity=' '
+curentity=' '
+WHILE _READEXIST
+	READ DOS line
+	reccnt=reccnt+1
+	curentity=PARSECSV(line,'TEXT',1)
+.// If this is a new entity, write out the current section records
+	WHEN curentity NE secentity AND seccnt GT 0
+		writecursection
+		seccnt=0
+		secentity=curentity
+	ENDWHEN
+	seccnt=seccnt+1
+	SERIES1[seccnt]=PARSECSV(line,'TEXT',1)
+	SERIES2[seccnt]=PARSECSV(line,'TEXT',2)	
+	SERIES3[seccnt]=PARSECSV(line,'TEXT',3)
+	SERIES4[seccnt]=PARSECSV(line,'TEXT',4)
+	SERIES5[seccnt]=PARSECSV(line,'TEXT',5)
+	SERIES0[seccnt]=0
+ENDWHILE
+CLOSE DOS
+.// write out remaining section if records there
+WHEN seccnt GT 0
+	writecursection
+ENDWHEN
+CLOSE DOS READ
+CLOSE DATABASE
+msg=concat(reccnt,' records restored to Mapping Table','</BR>')
+COPYHTML #msg
+API_END
+RETURN
+PROCEDURE writecursection
+WHEN secentity NE ' '
+	LOCATE 'Entity' SELECT secentity
+	WRITE MEMORY 1-#seccnt
+	msg=concat(seccnt,' Records created for Entity ',secentity,'</BR>')
+	COPYHTML #msg
+ENDWHEN
+RETURN
+

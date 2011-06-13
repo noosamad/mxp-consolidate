@@ -1,0 +1,18 @@
+PROCEDURE reportScript
+API_START
+PROJECT #_apiLibrary
+MODEL 'MappingTable'
+LOCATE 'Entity' SELECT 'MXP Singapore'
+READ MEMORY 'All'
+recs=ITEMSINFO('series1','ITEMS')
+msg=concat(recs,' Records read in')
+COPYHTML #msg
+filename='singmap.csv'
+OPEN DOS #filename WRITE
+FOR i,1,ITEMSINFO('Series1','ITEMS'),1
+	line=concat(series1[i],',',series2[i],',',series3[i],',',series4[i])
+	WRITE DOS line
+ENDFOR
+CLOSE DOS
+API_END
+RETURN
