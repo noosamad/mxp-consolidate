@@ -1,0 +1,184 @@
+Account,Type,Accnt. #
+1002 · CitiBank USD,Bank,1002
+1008 · Cash Suspense,Bank,1008
+1010 · DBS SGD,Bank,1010
+1012 · DBS USD,Bank,1012
+1021 · Petty Cash,Bank,1021
+1200 · Accounts Receivable,Accounts Receivable,1200
+1205 · Accounts Receivable (USD),Accounts Receivable,1205
+1300 · Prepayments,Other Current Asset,1300
+1320 · Accrued Revenue,Other Current Asset,1320
+1420 · Advance Legal Fees,Other Current Asset,1420
+1450 · Deposits & Advances,Other Current Asset,1450
+1450 · Deposits & Advances:1451 · Lease Deposit,Other Current Asset,1451
+1450 · Deposits & Advances:1452 · Other Deposits,Other Current Asset,1452
+1450 · Deposits & Advances:1453 · Utilities Deposits,Other Current Asset,1453
+1470 · Directors Loans,Other Current Asset,1470
+1470 · Directors Loans:1471 · Director 1,Other Current Asset,1471
+1485 · Loans to DCF,Other Current Asset,1485
+1499 · Undeposited Funds,Other Current Asset,1499
+1510 · Employee Advances,Other Current Asset,1510
+1510 · Employee Advances:1513 · Christian Andrews Advance,Other Current Asset,1513
+1890 · Office Equipment,Fixed Asset,1890
+1890 · Office Equipment:1891 · Cost,Fixed Asset,1891
+1890 · Office Equipment:1892 · Accumulated Depreciation,Fixed Asset,1892
+1910 · Computer Equipment,Fixed Asset,1910
+1910 · Computer Equipment:1911 · Cost,Fixed Asset,1911
+1910 · Computer Equipment:1912 · Accumulated Depn,Fixed Asset,1912
+1950 · Fixtures & Fittings,Fixed Asset,1950
+1950 · Fixtures & Fittings:1951 · Accumulated Depreciation,Fixed Asset,1951
+1950 · Fixtures & Fittings:1952 · Cost,Fixed Asset,1952
+2000 · Accounts Payable,Accounts Payable,2000
+2002 · USD Accounts Payable,Accounts Payable,2002
+2010 · Loans from Affiliate Companies,Other Current Liability,2010
+2010 · Loans from Affiliate Companies:2012 · Loan ABC HK,Other Current Liability,2012
+2010 · Loans from Affiliate Companies:2013 · Loan ABC Australia,Other Current Liability,2013
+2010 · Loans from Affiliate Companies:2014 · Loan BPS Singapore,Other Current Liability,2014
+2020 · Shareholder Loans,Other Current Liability,2020
+2020 · Shareholder Loans:2021 · Shareholder 1,Other Current Liability,2021
+2030 · Loans Received - Shareholder 2,Other Current Liability,2030
+2040 · Loans Received - XYZ Company,Other Current Liability,2040
+2060 · Other Payables,Other Current Liability,2060
+2060 · Other Payables:2062 · ABC HK - Upgrade Accruals,Other Current Liability,2062
+2100 · Payroll Liabilities,Other Current Liability,2100
+2111 · Payroll Liability - Other,Other Current Liability,2111
+2200 · GST Control,Other Current Liability,2200
+2710 · Prepaid Maintenance,Other Current Liability,2710
+2850 · Withholding Tax,Other Current Liability,2850
+2860 · Accrued Expense,Other Current Liability,2860
+2870 · Taxation Payable,Other Current Liability,2870
+2880 · Deferred Taxation,Other Current Liability,2880
+3000 · Opening Bal Equity,Equity,3000
+3100 · Share Capital,Equity,3100
+3200 · Retained Earnings,Equity,3200
+4005 · Automatos Service Fees,Income,4005
+4010 · SW Licenses,Income,4010
+4020 · Software M&S Income,Income,4020
+4030 · Consulting Income,Income,4030
+4031 · Software Development,Income,4031
+4040 · Reimbursed Expenses,Income,4040
+4050 · Miscellaneous Income,Income,4050
+5010 · Software Licensing,Cost of Goods Sold,5010
+5010 · Software Licensing:5011 · Software Licensing/Upgrade Fees,Cost of Goods Sold,5011
+5010 · Software Licensing:5012 · Withholding Tax,Cost of Goods Sold,5012
+5020 · External Consulting,Cost of Goods Sold,5020
+5020 · External Consulting:5021 · External Consulting Net Fees,Cost of Goods Sold,5021
+5020 · External Consulting:5022 · Withholding Tax,Cost of Goods Sold,5022
+6002 · Exchange Gain/Loss,Expense,6002
+6010 · Salaries & Benefits,Expense,6010
+6010 · Salaries & Benefits:6011 · Salary,Expense,6011
+6010 · Salaries & Benefits:6012 · Allowance,Expense,6012
+6010 · Salaries & Benefits:6013 · Bonus,Expense,6013
+6010 · Salaries & Benefits:6014 · Leave Pay Due on Termination,Expense,6014
+6010 · Salaries & Benefits:6015 · MPF Contributions,Expense,6015
+6010 · Salaries & Benefits:6016 · Employment Pass Fees,Expense,6016
+6010 · Salaries & Benefits:6017 · Health Cover,Expense,6017
+6010 · Salaries & Benefits:6018 · Medical Benefits,Expense,6018
+6010 · Salaries & Benefits:6019 · Training,Expense,6019
+6020 · Occupancy Charges,Expense,6020
+6020 · Occupancy Charges:6021 · Rent,Expense,6021
+6020 · Occupancy Charges:6022 · Amenities,Expense,6022
+6020 · Occupancy Charges:6023 · Service Charge,Expense,6023
+6020 · Occupancy Charges:6024 · Signage,Expense,6024
+6020 · Occupancy Charges:6025 · Rates,Expense,6025
+6020 · Occupancy Charges:6027 · Repairs Reclaimed from Rent,Expense,6027
+6030 · Office Admin Costs,Expense,6030
+6030 · Office Admin Costs:6031 · Office Cleaning/Amenities,Expense,6031
+6030 · Office Admin Costs:6032 · Secretarial Services,Expense,6032
+6038 · Contract Services,Expense,6038
+6040 · Recruitment Advertising,Expense,6040
+6100 · Marketing,Expense,6100
+6100 · Marketing:6101 · Seminars & Promotion,Expense,6101
+6100 · Marketing:6102 · Printed Marketing Material,Expense,6102
+6100 · Marketing:6103 · Outside Services,Expense,6103
+6100 · Marketing:6104 · Mail List and Sources,Expense,6104
+6110 · Motor Expense,Expense,6110
+6120 · Bank Service Charges,Expense,6120
+6125 · Books and Publications,Expense,6125
+6130 · Cash Discounts,Expense,6130
+6140 · Gifts and Donations,Expense,6140
+6150 · Depreciation Expense,Expense,6150
+6150 · Depreciation Expense:6153 · Office Equip Depn,Expense,6153
+6150 · Depreciation Expense:6155 · Depn Comp Eqt,Expense,6155
+6150 · Depreciation Expense:6157 · Depn Fixtures & Fittings,Expense,6157
+6160 · Dues and Subscriptions,Expense,6160
+6165 · Entertainment,Expense,6165
+6170 · Equipment Rental,Expense,6170
+6175 · Expensed Equipment,Expense,6175
+6180 · Insurance,Expense,6180
+6180 · Insurance:6181 · Fire & Risks,Expense,6181
+6180 · Insurance:6185 · Professional Indemnity Insuranc,Expense,6185
+6180 · Insurance:6186 · Sickness and accident Insurance,Expense,6186
+6180 · Insurance:6187 · Employer's Liability,Expense,6187
+6180 · Insurance:6188 · Employee Compensation,Expense,6188
+6200 · Interest Expense,Expense,6200
+6200 · Interest Expense:6202 · Finance Charge,Expense,6202
+6200 · Interest Expense:6204 · Loan Interest,Expense,6204
+6200 · Interest Expense:6208 · Mortgage,Expense,6208
+6230 · Licenses and Permits,Expense,6230
+6230 · Licenses and Permits:6231 · Business Registration,Expense,6231
+6240 · Miscellaneous,Expense,6240
+6250 · Postage and Delivery,Expense,6250
+6260 · Printing and Reproduction,Expense,6260
+6270 · Professional Fees,Expense,6270
+6270 · Professional Fees:6271 · Accounting,Expense,6271
+6270 · Professional Fees:6272 · Legal Fees,Expense,6272
+6270 · Professional Fees:6273 · Audit Fee,Expense,6273
+6270 · Professional Fees:6275 · Other Professional Services,Expense,6275
+6270 · Professional Fees:6276 · Disbursements,Expense,6276
+6280 · Repairs,Expense,6280
+6280 · Repairs:6281 · Building Repairs,Expense,6281
+6280 · Repairs:6282 · Computer Repairs,Expense,6282
+6280 · Repairs:6283 · Equipment Repairs,Expense,6283
+6280 · Repairs:6285 · Janitorial Exp,Expense,6285
+6290 · Subscriptions,Expense,6290
+6300 · Software Expense,Expense,6300
+6310 · EDP Consumables,Expense,6310
+6320 · Telephone,Expense,6320
+6320 · Telephone:6321 · Installation,Expense,6321
+6320 · Telephone:6322 · Internet Charges,Expense,6322
+6320 · Telephone:6323 · ISD Calls,Expense,6323
+6320 · Telephone:6325 · Local Calls,Expense,6325
+6320 · Telephone:6326 · Service Fee,Expense,6326
+6320 · Telephone:6327 · Fax,Expense,6327
+6320 · Telephone:6328 · Skype Service,Expense,6328
+6320 · Telephone:6330 · Mobile,Expense,6330
+6320 · Telephone:6330 · Mobile:6331 · ISD Calls,Expense,6331
+6320 · Telephone:6330 · Mobile:6332 · Local Calls,Expense,6332
+6320 · Telephone:6330 · Mobile:6335 · Service Charge,Expense,6335
+6350 · Travel and Acc.,Expense,6350
+6350 · Travel and Acc.:6351 · Accommodation,Expense,6351
+6350 · Travel and Acc.:6352 · Meals,Expense,6352
+6350 · Travel and Acc.:6353 · Travel Expense,Expense,6353
+6350 · Travel and Acc.:6354 · Travel Insurance,Expense,6354
+6350 · Travel and Acc.:6355 · Local Transportation,Expense,6355
+6350 · Travel and Acc.:6356 · Per Diem Allowances,Expense,6356
+6350 · Travel and Acc.:6357 · Airfares,Expense,6357
+6360 · Stamp Duties,Expense,6360
+6390 · Utilities,Expense,6390
+6390 · Utilities:6392 · Gas and Electric,Expense,6392
+6390 · Utilities:6396 · Water,Expense,6396
+6390 · Utilities:6398 · Account Service Fees,Expense,6398
+6550 · Office Supplies,Expense,6550
+6550 · Office Supplies:6551 · Copier Service,Expense,6551
+6550 · Office Supplies:6552 · Miscellaneous,Expense,6552
+6550 · Office Supplies:6553 · Stationery,Expense,6553
+6555 · Outside Services,Expense,6555
+6560 · Payroll Expenses,Expense,6560
+6570 · Skill Development Funds,Expense,6570
+6580 · Bad Debts,Expense,6580
+66900 · Reconciliation Discrepancies,Expense,66900
+6998 · Expenses Suspense,Expense,6998
+6999 · Uncategorised Expenses,Expense,6999
+7010 · Interest Income,Other Income,7010
+7030 · Other Income,Other Income,7030
+7040 · MOF Resilience Package,Other Income,7040
+6800 · Taxes,Other Expense,6800
+6800 · Taxes:6830 · Corporate,Other Expense,6830
+6800 · Taxes:6850 · Property,Other Expense,6850
+6800 · Taxes:6860 · Late Lodgement Penalty,Other Expense,6860
+6870 · Late Payment Fee,Other Expense,6870
+8010 · Other Expenses,Other Expense,8010
+8020 · Curr. Exch Loss/(Gain),Other Expense,8020
+8030 · Unclaimed GST,Other Expense,8030
+8040 · Witholding Tax Penalties,Other Expense,8040

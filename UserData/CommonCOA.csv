@@ -1,0 +1,146 @@
+Number,Description,Category,Section,Type,Parent,Account Type
+1001,Local Bank Account 1,BS,Bank,Detail,Bank,1
+1002,Local Bank Account 2,BS,Bank,Detail,Bank,1
+1010,USD Bank Account 1,BS,Bank,Detail,Bank,1
+1011,USD Bank Account 2,BS,Bank,Detail,Bank,1
+1090,Petty Cash Account,BS,Bank,Detail,Bank,1
+1099,Cash Suspense,BS,Bank,Detail,Bank,1
+1210,Trade Debtors,BS,Receivables,Detail,Receivables,1
+1220,Other Debtors,BS,Receivables,Detail,Receivables,1
+1310,Prepayments,BS,Other Current Assets,Detail,Other Current Assets,1
+1320,Advance Payments,BS,Other Current Assets,Detail,Other Current Assets,1
+1330,Employee Advances,BS,Other Current Assets,Detail,Other Current Assets,1
+1340,Deposits,BS,Other Current Assets,Detail,Other Current Assets,1
+1350,Accrued Revenue,BS,Other Current Assets,Detail,Other Current Assets,1
+1400,Directors Loans,BS,Other Current Assets,Summary,Other Current Assets,1
+1410,Director 1,BS,Other Current Assets,Detail,1400 - Directors Loans,1
+1420,Director 2,BS,Other Current Assets,Detail,1400 - Directors Loans,1
+1430,Director 3,BS,Other Current Assets,Detail,1400 - Directors Loans,1
+1490,Directors Loans - Non Specific,BS,Other Current Assets,Detail,1400 - Directors Loans,1
+1500,Loans To Affiliates,BS,Other Current Assets,Summary,Other Current Assets,1
+1510,ABC Australia,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1520,ABC HK,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1530,ABC Singapore,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1540,New Venture,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1580,Loans Other,BS,Other Current Assets,Detail,Other Current Assets,1
+1590,Undeposited Funds,BS,Other Current Assets,Detail,Other Current Assets,1
+1610,Office Equipment,BS,Fixed Assets,Summary,Fixed Assets,1
+1620,Office Equip - At Cost,BS,Fixed Assets,Detail,1610 - Office Equipment,1
+1630,Office Equip - Accum Depn,BS,Fixed Assets,Detail,1610 - Office Equipment,1
+1640,Computers,BS,Fixed Assets,Summary,Fixed Assets,1
+1650,Computers - At Cost,BS,Fixed Assets,Detail,1640 - Computers,1
+1660,Computers - Accum Depn,BS,Fixed Assets,Detail,1640 - Computers,1
+1670,Fixtures & Fittings,BS,Fixed Assets,Summary,Fixed Assets,1
+1680,Fixtures - At Cost,BS,Fixed Assets,Detail,1670 - Fixtures & Fittings,1
+1690,Fixtures - Accum Depn,BS,Fixed Assets,Detail,1670 - Fixtures & Fittings,1
+2010,Trade Creditors,BS,Payables,Detail,Payables,-1
+2020,Other Creditors,BS,Payables,Detail,Payables,-1
+2100,Loans From Affiliates,BS,Other Current Liability,Summary,Other Current Liability,-1
+2110,Loans - ABC Australia,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2120,Loans - ABC HK,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2130,Loans - ABC Singapore,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2140,Loans - ABC UK,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2150,Loans - XYZ Company,BS,Other Current Liability,Detail,Other Current Liability,-1
+2160,Loans - ITH Company,BS,Other Current Liability,Detail,Other Current Liability,-1
+2190,Loans from Affilites - Non Specific,BS,Other Current Liability,Detail,Other Current Liability,-1
+2200,Directors Loans,BS,Other Current Liability,Summary,Other Current Liability,-1
+2210,Loans - Director 1,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
+2220,Loans - Director 2,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
+2290,Loans - Directors Other,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
+2310,Prepaid Maintenance,BS,Other Current Liability,Detail,Other Current Liability,-1
+2410,Payroll Liabilities,BS,Other Current Liability,Detail,Other Current Liability,-1
+2510,Accrued Expenses,BS,Other Current Liability,Detail,Other Current Liability,-1
+2610,GST Control,BS,Other Current Liability,Detail,Other Current Liability,-1
+2620,Taxation Payable,BS,Other Current Liability,Detail,Other Current Liability,-1
+2630,Deferred Taxation,BS,Other Current Liability,Detail,Other Current Liability,-1
+3100,Opening Balance Equity,BS,Equity,Detail,Equity,-1
+3200,Share Capital,BS,Equity,Detail,Equity,-1
+3300,Retained Earnings,BS,Equity,Detail,Equity,-1
+3400,Share Premium,BS,Equity,Detail,Equity,-1
+4010,Software Licence Fees,PL,Income,Detail,Income,-1
+4020,Support and Upgrade Fees,PL,Income,Detail,Income,-1
+4030,Consultancy and Development,PL,Income,Detail,Income,-1
+4040,Consulting Expenses Recovery,PL,Income,Detail,Income,-1
+4050,Miscellaneous Income,PL,Income,Detail,Income,-1
+5010,Software Licence Costs,PL,Cost of Goods Sold,Detail,Cost of Goods Sold,1
+5015,Upgrade and Support Costs,PL,Cost of Goods Sold,Detail,Cost of Goods Sold,1
+5020,Subcontractor Fees,PL,Cost of Goods Sold,Detail,Cost of Goods Sold,1
+5050,Sales Commissions,PL,Cost of Goods Sold,Detail,Cost of Goods Sold,1
+5060,Third Party Sales Commission,PL,Cost of Goods Sold,Detail,Cost of Goods Sold,1
+6100,Salary and Benefits,PL,Expenses,Summary,Expenses,1
+6105,Directors Emoluments,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6110,Salaries & Allowances,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6120,Bonuses,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6130,Superannuation,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6140,Medical,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6150,Staff Training and Development,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6160,Recruitment Costs,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6170,Insurances - HR Related,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6180,Contracted Services,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6190,Payroll Expenses,PL,Expenses,Detail,6100 - Salary and Benefits,1
+6200,Occupancy,PL,Expenses,Summary,Expenses,1
+6210,Rent,PL,Expenses,Detail,6200 - Occupancy,1
+6215,Rates,PL,Expenses,Detail,6200 - Occupancy,1
+6220,Utilities,PL,Expenses,Detail,6200 - Occupancy,1
+6230,Office Cleaning,PL,Expenses,Detail,6200 - Occupancy,1
+6240,Building Repairs & Maintenance,PL,Expenses,Detail,6200 - Occupancy,1
+6250,Management Fees,PL,Expenses,Detail,6200 - Occupancy,1
+6260,Amenities,PL,Expenses,Detail,6200 - Occupancy,1
+6270,Insurance - Occupancy Related,PL,Expenses,Detail,6200 - Occupancy,1
+6290,Other Occupancy Costs,PL,Expenses,Detail,6200 - Occupancy,1
+6300,Office and Administrative,PL,Expenses,Summary,Expenses,1
+6310,Postage and Courier,PL,Expenses,Detail,6300 - Office and Administrative,1
+6320,Office Supplies,PL,Expenses,Detail,6300 - Office and Administrative,1
+6330,Software Expense,PL,Expenses,Detail,6300 - Office and Administrative,1
+6340,Computer Consumables,PL,Expenses,Detail,6300 - Office and Administrative,1
+6350,Printing,PL,Expenses,Detail,6300 - Office and Administrative,1
+6360,Equipment Repairs,PL,Expenses,Detail,6300 - Office and Administrative,1
+6370,Equipment Expenses & Rentals,PL,Expenses,Detail,6300 - Office and Administrative,1
+6390,Other Office and Admin,PL,Expenses,Detail,6300 - Office and Administrative,1
+6400,Marketing and Promotion,PL,Expenses,Summary,Expenses,1
+6410,Client Entertainment,PL,Expenses,Detail,6400 - Marketing and Promotion,1
+6420,Advertising,PL,Expenses,Detail,6400 - Marketing and Promotion,1
+6430,Seminar Costs,PL,Expenses,Detail,6400 - Marketing and Promotion,1
+6440,Printing and Production,PL,Expenses,Detail,6400 - Marketing and Promotion,1
+6450,Design and Web costs,PL,Expenses,Detail,6400 - Marketing and Promotion,1
+6460,Gifts & Donations,PL,Expenses,Detail,6400 - Marketing and Promotion,1
+6490,Other Marketing Costs,PL,Expenses,Detail,6400 - Marketing and Promotion,1
+6500,Communication and Internet,PL,Expenses,Summary,Expenses,1
+6510,Telephone,PL,Expenses,Detail,6500 - Communication and Internet,1
+6520,Internet,PL,Expenses,Detail,6500 - Communication and Internet,1
+6600,Travel and Accommodation,PL,Expenses,Summary,Expenses,1
+6610,Airfares,PL,Expenses,Detail,6600 - Travel and Accommodation,1
+6620,Accommodation,PL,Expenses,Detail,6600 - Travel and Accommodation,1
+6630,Transportation,PL,Expenses,Detail,6600 - Travel and Accommodation,1
+6640,Meals and Per Diem,PL,Expenses,Detail,6600 - Travel and Accommodation,1
+6690,Other,PL,Expenses,Detail,6600 - Travel and Accommodation,1
+6700,Accounting & Legal,PL,Expenses,Summary,Expenses,1
+6710,Accounting,PL,Expenses,Detail,6700 - Accounting & Legal,1
+6720,Audit Costs,PL,Expenses,Detail,6700 - Accounting & Legal,1
+6730,Disbursements,PL,Expenses,Detail,6700 - Accounting & Legal,1
+6740,Legal Fees,PL,Expenses,Detail,6700 - Accounting & Legal,1
+6750,Licences & Permits,PL,Expenses,Detail,6700 - Accounting & Legal,1
+6760,Stamp Duties,PL,Expenses,Detail,6700 - Accounting & Legal,1
+6790,Other Acctg & Legal,PL,Expenses,Detail,6700 - Accounting & Legal,1
+6800,Finance Costs,PL,Expenses,Summary,Expenses,1
+6810,Bank Service Charges,PL,Expenses,Detail,6800 - Finance Costs,1
+6820,Interest Expense,PL,Expenses,Detail,6800 - Finance Costs,1
+6830,Depreciation Expense,PL,Expenses,Detail,6800 - Finance Costs,1
+6900,Other Operational Expenses,PL,Expenses,Summary,Expenses,1
+6910,Books and Publications,PL,Expenses,Detail,6900 - Other Operational Expenses,1
+6920,Dues and Subscriptions,PL,Expenses,Detail,6900 - Other Operational Expenses,1
+6930,Cash Discounts,PL,Expenses,Detail,6900 - Other Operational Expenses,1
+6990,Miscellaneous Expenses,PL,Expenses,Detail,6900 - Other Operational Expenses,1
+6995,Expenses Suspense,PL,Expenses,Detail,6900 - Other Operational Expenses,1
+6999,Currency Translation Expense,PL,Expenses,Detail,Expenses,1
+7100,Other Non Operating Income,PL,Other Income,Summary,Other Income,-1
+7110,Interest Income,PL,Other Income,Detail,7100 - Other Non Operating Income,-1
+7120,Other Income,PL,Other Income,Detail,7100 - Other Non Operating Income,-1
+8200,Other Non Operating Expense,PL,Other Expense,Summary,Other Expense,1
+8205,Bad Debts,PL,Other Expense,Detail,8200 - Other Non Operating Expense,1
+8210,Late Payment Fees,PL,Other Expense,Detail,8200 - Other Non Operating Expense,1
+8220,Interest Expense - Non Operational,PL,Other Expense,Detail,8200 - Other Non Operating Expense,1
+8230,Other Expense,PL,Other Expense,Detail,8200 - Other Non Operating Expense,1
+8240,Tax,PL,Other Expense,Detail,8200 - Other Non Operating Expense,1
+8250,Exchange Loss/(Gain),PL,Other Expense,Detail,8200 - Other Non Operating Expense,1
+8260,Impairment Loss Amt due fm Subs,PL,Other Expense,Detail,8200 - Other Non Operating Expense,1

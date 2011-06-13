@@ -1,0 +1,64 @@
+﻿<!---maxiplan error message--->
+ 08-JUN-2011 21:53:59
+In error routine : error in Maxiplan object rp_pnl  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 212   
+Spec : accname=SERIES3
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 08-JUN-2011 21:53:59
+In error routine : error in Maxiplan object rp_pnl  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 213   
+Spec : accsection=SERIES4
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 08-JUN-2011 21:53:59
+In error routine : error in Maxiplan object rp_pnl  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 214   
+Spec : acctype=SERIES5
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 08-JUN-2011 21:53:59
+In error routine : error in Maxiplan object rp_pnl  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 215   
+Spec : accparent=SERIES6
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 08-JUN-2011 21:54:02
+In error routine : error in Maxiplan object rp_balancesheet  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 212   
+Spec : accname=SERIES3
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 08-JUN-2011 21:54:02
+In error routine : error in Maxiplan object rp_balancesheet  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 213   
+Spec : accsection=SERIES4
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 08-JUN-2011 21:54:02
+In error routine : error in Maxiplan object rp_balancesheet  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 214   
+Spec : acctype=SERIES5
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 08-JUN-2011 21:54:02
+In error routine : error in Maxiplan object rp_balancesheet  class reportscript
+Error : 31 Non-existant variable or illegal indirection
+Line No : 215   
+Spec : accparent=SERIES6
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+<!---maxiplan error message--->

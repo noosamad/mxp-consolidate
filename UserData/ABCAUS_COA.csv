@@ -1,0 +1,107 @@
+Account,Type,Accnt. #
+1001 · MacQuarie Cash Management Trust,Bank,1001
+1030 · Satoluja Trust Account,Bank,1030
+1051 · Petty Cash,Bank,1051
+1052 · Trust Account,Bank,1052
+1080 · Cash On Hand,Bank,1080
+1200 · Accounts Receivable,Accounts Receivable,1200
+1400 · Loans to Related Companies,Other Current Asset,1400
+1400 · Loans to Related Companies:1402 · Loans to ABC Singapore,Other Current Asset,1402
+1499 · Undeposited Funds,Other Current Asset,1499
+1560 · Plant & Equipment,Fixed Asset,1560
+1560 · Plant & Equipment:1561 · Original Cost,Fixed Asset,1561
+1560 · Plant & Equipment:1562 · Accoumulated Depreciation,Fixed Asset,1562
+1570 · Computer Equipment,Fixed Asset,1570
+1570 · Computer Equipment:1571 · Computer Equipment - Original C,Fixed Asset,1571
+1570 · Computer Equipment:1572 · Computer Equip- Accum Depn,Fixed Asset,1572
+6620 · Formation Expenses,Other Asset,6620
+2000 · Accounts Payable,Accounts Payable,2000
+2030 · Accounts Payable - THB,Accounts Payable,2030
+2100 · Payroll Liabilities,Other Current Liability,2100
+2100 · Payroll Liabilities:2102 · Payroll Tax,Other Current Liability,2102
+2100 · Payroll Liabilities:2105 · Superannuation Liabilities,Other Current Liability,2105
+2110 · Prepaid M&S Fees,Other Current Liability,2110
+2120 · Loans - Related Parties,Other Current Liability,2120
+2120 · Loans - Related Parties:2121 · Loans - XYZ Company,Other Current Liability,2121
+2120 · Loans - Related Parties:2122 · Loans - ABC HK,Other Current Liability,2122
+2140 · Shareholders Loans,Other Current Liability,2140
+2140 · Shareholders Loans:2141 · Loans - Shareholder 1,Other Current Liability,2141
+2140 · Shareholders Loans:2142 · Loans - Shareholder 2,Other Current Liability,2142
+2140 · Shareholders Loans:2143 · Loans - Shareholder 3,Other Current Liability,2143
+2150 · Loan from  Other,Other Current Liability,2150
+2190 · Accrued Expenses,Other Current Liability,2190
+2200 · Tax Payable,Other Current Liability,2200
+1110 · Retained Earnings,Equity,1110
+3000 · Opening Bal Equity,Equity,3000
+4100 · SW Licence Fees,Income,4100
+4120 · Software Maintenance Fees,Income,4120
+4200 · Consultancy and Development,Income,4200
+4300 · Automatos Service Revenue,Income,4300
+4520 · Consulting Expenses Recovery,Income,4520
+4599 · Interest Received,Income,4599
+4999 · Uncategorised Income,Income,4999
+5200 · MXP Software Purchases,Cost of Goods Sold,5200
+5210 · Subcontractor Expenses,Cost of Goods Sold,5210
+5250 · Third Party Sales Commission,Cost of Goods Sold,5250
+5260 · Cost - Automatos Service,Cost of Goods Sold,5260
+6110 · Motor Expense,Expense,6110
+6115 · Exchange Gain/Loss,Expense,6115
+6120 · Bank Service Charges,Expense,6120
+6125 · Books and Publications,Expense,6125
+6130 · Cash Discounts,Expense,6130
+6140 · Gifts and Donations,Expense,6140
+6150 · Depreciation Expense,Expense,6150
+6160 · Dues and Subscriptions,Expense,6160
+6170 · Equipment Rental,Expense,6170
+6175 · Expensed Equipment,Expense,6175
+6180 · Insurance,Expense,6180
+6180 · Insurance:6185 · Workers Compensation Insurance,Expense,6185
+6180 · Insurance:6190 · Sickness and accident Insurance,Expense,6190
+6200 · Interest Expense,Expense,6200
+6200 · Interest Expense:6210 · Finance Charge,Expense,6210
+6200 · Interest Expense:6220 · Loan Interest,Expense,6220
+6200 · Interest Expense:6375 · Mortgage,Expense,6375
+6230 · Licenses and Permits,Expense,6230
+6240 · Miscellaneous,Expense,6240
+6250 · Postage and Delivery,Expense,6250
+6260 · Printing and Stationery,Expense,6260
+6270 · Professional Fees,Expense,6270
+6270 · Professional Fees:6275 · Accounting,Expense,6275
+6270 · Professional Fees:6280 · Legal Fees,Expense,6280
+6270 · Professional Fees:6282 · Asic Fees,Expense,6282
+6270 · Professional Fees:6284 · Secretarial,Expense,6284
+6288 · Recruitment Fees,Expense,6288
+6290 · Rent,Expense,6290
+6295 · Office Expenses,Expense,6295
+6300 · Repairs,Expense,6300
+6300 · Repairs:6310 · Building Repairs,Expense,6310
+6300 · Repairs:6320 · Computer Repairs,Expense,6320
+6300 · Repairs:6330 · Equipment Repairs,Expense,6330
+6334 · Subscriptions,Expense,6334
+6335 · Software Expense,Expense,6335
+6336 · EDP Consumables,Expense,6336
+6340 · Telephone & Internet,Expense,6340
+6340 · Telephone & Internet:6341 · Mobile,Expense,6341
+6340 · Telephone & Internet:6343 · Skype,Expense,6343
+6340 · Telephone & Internet:6345 · Fax,Expense,6345
+6340 · Telephone & Internet:6346 · ADSL Telephone Line,Expense,6346
+6340 · Telephone & Internet:6347 · ISP Fees,Expense,6347
+6340 · Telephone & Internet:6348 · Internet Expenses,Expense,6348
+6350 · Travel & Ent,Expense,6350
+6350 · Travel & Ent:6360 · Entertainment,Expense,6360
+6350 · Travel & Ent:6370 · Meals,Expense,6370
+6350 · Travel & Ent:6380 · Travel,Expense,6380
+6350 · Travel & Ent:6385 · Local Transportation,Expense,6385
+6390 · Utilities,Expense,6390
+6390 · Utilities:6400 · Gas and Electric,Expense,6400
+6390 · Utilities:6410 · Water,Expense,6410
+6480 · External Services,Expense,6480
+6490 · Web Hosting Services,Expense,6490
+6500 · Marketing Expenses,Expense,6500
+6500 · Marketing Expenses:6510 · Webex Presentation,Expense,6510
+6560 · Payroll Expenses,Expense,6560
+6560 · Payroll Expenses:6565 · Employee Super,Expense,6565
+6910 · Formation Expenses Written Off,Expense,6910
+7010 · Interest Income,Other Income,7010
+7030 · Other Income,Other Income,7030
+8010 · Other Expenses,Other Expense,8010
