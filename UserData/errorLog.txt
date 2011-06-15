@@ -1,64 +1,666 @@
 ﻿<!---maxiplan error message--->
- 08-JUN-2011 21:53:59
-In error routine : error in Maxiplan object rp_pnl  class reportscript
+ 15-JUN-2011 20:28:56
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:56
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:56
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:56
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:56
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:56
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:28:57
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 31    
+Spec : OPEN PROJECT
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 391 Project is not opened
+Line No : 32    
+Spec :                 MODEL #models[imodels]
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:29:41
+In error routine : error in Maxiplan object updateentities  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 33    
+Spec :                 nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+Stack Track :UpdateEntities -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:16
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 39    
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:16
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 391 Project is not opened
+Line No : 40    
+Spec : model 'CommonCOA' write
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:17
+In error routine : error in Maxiplan object api_transactionmodel
+Error : 389 Invalid Project or Project Owner
+Line No : 49    
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---api error message--->
+Invalid Project
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:17
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 144   
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:17
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 391 Project is not opened
+Line No : 145   
+Spec : model 'CommonCOA' write
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:17
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 146   
+Spec : WRITE MEMORY 1-#precs
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:48
+In error routine : error in Maxiplan object restoremapping  class reportscript
+Error : 202 Missing or not found member
+Line No : 231   
+Spec :         LOCATE 'Entity' SELECT secentity
+Stack Track :UtilityTaskPanel -> API_START -> api_getProjectInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> RestoreMapping -> GetCascadeProject -> mxpUserInfo -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> API_TRANSACTIONMODEL -> modelZero -> dbconnectPlan -> dbclose
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:48
+In error routine : error in Maxiplan object restoremapping  class reportscript
+Error : 202 Missing or not found member
+Line No : 231   
+Spec :         LOCATE 'Entity' SELECT secentity
+Stack Track :UtilityTaskPanel -> saveInput -> dbconnectPlan -> openDb -> getDBType -> dbClosePlan -> closeDB -> RestoreMapping -> updateLookup -> dbclosePlan -> updateExpression -> dbclosePlan -> api_ShowError -> API_TRANSACTIONMODEL ->  ->  -> 
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:30:49
+In error routine : error in Maxiplan object restoremapping  class reportscript
+Error : 202 Missing or not found member
+Line No : 231   
+Spec :         LOCATE 'Entity' SELECT secentity
+Stack Track :UtilityTaskPanel -> saveInput -> dbconnectPlan -> openDb -> getDBType -> dbClosePlan -> closeDB -> RestoreMapping -> updateLookup -> dbclosePlan -> updateExpression -> dbclosePlan -> api_ShowError -> API_TRANSACTIONMODEL -> dbClosePlan -> dbclosePlan -> dbclosePlan
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:40:53
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 39    
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:40:53
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 391 Project is not opened
+Line No : 40    
+Spec : model 'CommonCOA' write
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:40:53
+In error routine : error in Maxiplan object api_transactionmodel
+Error : 389 Invalid Project or Project Owner
+Line No : 49    
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---api error message--->
+Invalid Project
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:40:53
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 144   
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:40:53
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 391 Project is not opened
+Line No : 145   
+Spec : model 'CommonCOA' write
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:40:53
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 146   
+Spec : WRITE MEMORY 1-#precs
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 44    
+Spec : OPEN PROJECT
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
+Error : 391 Project is not opened
+Line No : 45    
+Spec : MODEL 'CommonCOA'
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 47    
+Spec : READ MEMORY 'All'
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
 Error : 31 Non-existant variable or illegal indirection
-Line No : 212   
+Line No : 48    
 Spec : accname=SERIES3
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
 <!---maxiplan error message--->
 <!---maxiplan error message--->
- 08-JUN-2011 21:53:59
-In error routine : error in Maxiplan object rp_pnl  class reportscript
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
 Error : 31 Non-existant variable or illegal indirection
-Line No : 213   
+Line No : 49    
 Spec : accsection=SERIES4
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
 <!---maxiplan error message--->
 <!---maxiplan error message--->
- 08-JUN-2011 21:53:59
-In error routine : error in Maxiplan object rp_pnl  class reportscript
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
 Error : 31 Non-existant variable or illegal indirection
-Line No : 214   
+Line No : 50    
 Spec : acctype=SERIES5
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
 <!---maxiplan error message--->
 <!---maxiplan error message--->
- 08-JUN-2011 21:53:59
-In error routine : error in Maxiplan object rp_pnl  class reportscript
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
 Error : 31 Non-existant variable or illegal indirection
-Line No : 215   
+Line No : 51    
 Spec : accparent=SERIES6
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_PnL -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
 <!---maxiplan error message--->
 <!---maxiplan error message--->
- 08-JUN-2011 21:54:02
-In error routine : error in Maxiplan object rp_balancesheet  class reportscript
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
 Error : 31 Non-existant variable or illegal indirection
-Line No : 212   
-Spec : accname=SERIES3
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+Line No : 52    
+Spec : accflag=SERIES8
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
 <!---maxiplan error message--->
 <!---maxiplan error message--->
- 08-JUN-2011 21:54:02
-In error routine : error in Maxiplan object rp_balancesheet  class reportscript
-Error : 31 Non-existant variable or illegal indirection
-Line No : 213   
-Spec : accsection=SERIES4
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 92    
+Spec : OPEN PROJECT
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
 <!---maxiplan error message--->
 <!---maxiplan error message--->
- 08-JUN-2011 21:54:02
-In error routine : error in Maxiplan object rp_balancesheet  class reportscript
-Error : 31 Non-existant variable or illegal indirection
-Line No : 214   
-Spec : acctype=SERIES5
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
+Error : 391 Project is not opened
+Line No : 93    
+Spec : MODEL 'Eliminations'
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:41:01
+In error routine : error in Maxiplan object createelims  class reportscript
+Error : 50 Variable not found
+Line No : 109   
+Spec :      with sourceMember = measurelist
+Stack Track :CreateElims -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError
+<!---maxiplan error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---api error message--->
+Model must be called
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:42:24
+In error routine : error in Maxiplan object setuptaskpanel  class reportscript
+Error : 26 Cannot resolve indirection
+Line No : 22    
+Spec :        ##cmdx
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_logonURL -> api_getProjectInfo -> SetupTaskPanel -> API_START
 <!---maxiplan error message--->
 <!---maxiplan error message--->
- 08-JUN-2011 21:54:02
-In error routine : error in Maxiplan object rp_balancesheet  class reportscript
-Error : 31 Non-existant variable or illegal indirection
-Line No : 215   
-Spec : accparent=SERIES6
-Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDB -> api_logonURL -> api_getProjectInfo -> RP_BalanceSheet -> API_START -> GetCascadeProject -> GetCascadeModel -> GetCascadeTransCol -> GetCascadeTransDim -> GetCascadeTransRec
+ 15-JUN-2011 20:43:04
+In error routine : error in Maxiplan object setuptaskpanel  class reportscript
+Error : 26 Cannot resolve indirection
+Line No : 22    
+Spec :        ##cmdx
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_logonURL -> api_getProjectInfo -> SetupTaskPanel -> API_START
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:43:23
+In error routine : error in Maxiplan object setuptaskpanel  class reportscript
+Error : 26 Cannot resolve indirection
+Line No : 22    
+Spec :        ##cmdx
+Stack Track :SetupTaskPanel -> API_START -> api_getProjectInfo -> openDb -> getDBType -> closeDb -> api_logonURL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 20:43:35
+In error routine : error in Maxiplan object setuptaskpanel  class reportscript
+Error : 26 Cannot resolve indirection
+Line No : 22    
+Spec :        ##cmdx
+Stack Track :screenReport -> appHeader -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_logonURL -> api_getProjectInfo -> SetupTaskPanel -> API_START
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 21:34:36
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 39    
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 21:34:36
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 391 Project is not opened
+Line No : 40    
+Spec : model 'CommonCOA' write
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 21:34:36
+In error routine : error in Maxiplan object api_transactionmodel
+Error : 389 Invalid Project or Project Owner
+Line No : 49    
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---api error message--->
+Invalid Project
+<!---api error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 21:34:36
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 389 Invalid Project or Project Owner
+Line No : 144   
+Spec : OPEN PROJECT
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> API_SHOWERROR -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 21:34:36
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 391 Project is not opened
+Line No : 145   
+Spec : model 'CommonCOA' write
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError -> API_TRANSACTIONMODEL
+<!---maxiplan error message--->
+<!---maxiplan error message--->
+ 15-JUN-2011 21:34:36
+In error routine : error in Maxiplan object createccoatable  class reportscript
+Error : 386 Cube/Model is not opened
+Line No : 146   
+Spec : WRITE MEMORY 1-#precs
+Stack Track :CreateCCOAtable -> API_START -> GetCascadeProject -> mxpUserInfo -> openDb -> getDBType -> closeDb -> api_ShowError -> API_TRANSACTIONMODEL
 <!---maxiplan error message--->

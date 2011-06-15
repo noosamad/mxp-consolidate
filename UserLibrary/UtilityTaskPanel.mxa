@@ -1,0 +1,86 @@
+﻿PROCEDURE reportScript
+API_START
+.*********************************************************************\
+.* PROCEDURE TaskPanel
+.* Provides a simple interface for planning management
+.* Publish as a planning page to use
+.*********************************************************************/
+.//
+.//  SETUP THE BUTTON DESCRIPTIONS AND THE CALLED MXO ROUTINES
+.//
+mxoDescription[1] = 'Backup Mapping Table'
+mxoName[1] = 'BackupMapping'
+mxoicon[1] = 'BackupMapping.png'
+mxoDescription[2] = 'Restore Mapping Table'
+mxoName[2] = 'RestoreMapping'
+mxoicon[2] = 'RestoreMapping.png'
+mxoDescription[3] = 'Load Current Year Data'
+mxoName[3] = 'LoadMovementsData'
+mxoicon[3] = 'LoadCurrentData.png'
+.//
+.//  see if a button pressed from before, output nothing
+.//  and run the task
+.//
+mxorequested = getFormText('mxorequested','')
+.cmdx = 'NothingProc'
+when mxorequested ne ''
+    decode mxorequested into nr type value
+        cmdx=mxoName[nr]        
+.       ##cmdx
+   SWITCH       
+        CASE nr EQ 1
+                BackupMapping
+        CASE nr EQ 2
+                RestoreMapping
+        CASE nr EQ 3
+                LoadMovementsData
+    ENDSWITCH
+.    api_runTask
+.    with mxo=mxoName[nr]
+.    with mxoDesc=mxoDescription[nr]
+else
+.//
+.// Otherwise Display buttons
+.//
+    showOptions
+endwhen
+Return
+Procedure showOptions
+.//
+.// Display a table of buttons
+.//
+startform
+COPYHTML <input type="hidden" name="mxorequested" value="">
+.// Main header
+cubeLen = 3
+FORMAT '9' for cubeLen
+ADDTEXT #line 0, '<table><tr><td colspan="', cubeLen, '" style="border-bottom:1pt solid black;font-size:large">Utility Tasks</td></tr>'
+COPYHTML #line
+COPYHTML <tr>
+.FOR ac, 1, cubeLen, 1
+.    ADDTEXT #line 0, '<th>', 'ABC', '</th>'
+.    COPYHTML #line
+.ENDFOR
+COPYHTML </tr>
+..// Model actions
+FORMAT '<<9' FOR k
+FORMAT '<<9' for j
+newcol=0
+FOR j, 1, itemsinfo('mxoName', 'items'), 1
+        WHEN newcol EQ 0
+                COPYHTML <tr>
+        ENDWHEN
+        newcol=newcol+1
+        line=concat('<td style="padding: 0 15px"> <input type="image" value="',mxoDescription[j],'" src="images/',mxoicon[j],'" onclick="with(this.form){mxorequested.value=''',j,''';}" /></td>')
+        COPYHTML #line
+        WHEN newcol EQ cubeLen
+                COPYHTML </tr>
+                newcol=0
+        ENDWHEN
+ENDFOR
+WHEN newcol GT 0 and newcol LT cubeLen
+        COPYHTML </tr>
+copyhtml </table>
+endform
+RETURN
+RETURN

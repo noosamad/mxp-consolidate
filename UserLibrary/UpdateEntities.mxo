@@ -58,11 +58,15 @@ FOR imodels,1,ITEMSINFO('models','ITEMS'),1
 				memcur[nrmems]=groupcurrency[igroup]
 				mempar[nrmems]=' '
 			ENDWHEN
-			WHEN lowercase(modelsdimEntity[imodels]) EQ 'full' OR lowercase(modelsdimEntity[imodels]) EQ 'elimnode'
+			WHEN lowercase(modelsdimEntity[imodels]) EQ 'full' OR lowercase(modelsdimEntity[imodels]) EQ 'elimnode' OR lowercase(modelsdimEntity[imodels]) EQ 'leafelim'
 				nrmems=nrmems+1
 				memlst[nrmems]=concat(groupname[igroup],' ',txtelims)
 				memcur[nrmems]=groupcurrency[igroup]
-				mempar[nrmems]=groupname[igroup]
+				WHEN lowercase(modelsdimEntity[imodels]) EQ 'leafelim'
+					mempar[nrmems]=' '
+				ELSE
+					mempar[nrmems]=groupname[igroup]
+				ENDWHEN
 			ENDWHEN
 			WHEN lowercase(modelsdimEntity[imodels]) EQ 'full'
 				nrmems=nrmems+1

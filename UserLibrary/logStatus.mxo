@@ -1,0 +1,42 @@
+
+PROCEDURE logStatus
+DEFAULT tstatus = 'Not Started'
+	
+	_storage = 'ScriptCommon'
+	READ STORAGE
+	_storage = 'statuslog'
+	READ STORAGE into statuslist
+	
+	tvar = substr(selectedTask,1,2)
+	nrst = sizeof(selectedTask)
+	tstep = substr(selectedTask,4,nrst)
+	DECODE tstep into nrtstep type value
+	ADDTEXT user 0,tvar,'_user'
+	ADDTEXT datetime 0,tvar,'_time'
+	ADDTEXT status 0,tvar,'_status'
+
+	ttime = _time
+	FORMAT '999999' FOR ttime
+	DECODE ttime into stimev type value at 1 to 4
+	FORMAT '99:99' FOR stimev
+	DECODE stimev into stime type text
+	trim stime
+	FORMAT DATE 'dd-MMM-yyyy' FOR _today
+	DECODE _today into sdate type text
+	trim sdate
+	ADDTEXT stimestamp 0,sdate,' ',stime
+	
+	##user[nrtstep] = tuid
+	##datetime[nrtstep] = #stimestamp
+	##status[nrtstep] = tstatus
+
+	DELETE STORAGE
+	
+	nrstatuslist = ITEMSINFO('statuslist','ITEMS')
+	
+	FOR i,1,nrstatuslist,1
+		tempstatus = statuslist[i]
+		WRITE STORAGE VARIABLES ##tempstatus
+	ENDFOR
+	
+RETURN

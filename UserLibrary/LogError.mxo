@@ -1,0 +1,12 @@
+PROCEDURE LogError
+
+	nrerror = ITEMSINFO('_APIERRORMSG','ITEMS')
+	WHEN nrerror gt 0
+		COPYLOG Error occurred.
+		lestatus = 'Error'
+		logStatus
+		WITH tstatus = lestatus
+	ELSE
+		lestatus = 'Completed'
+	ENDWHEN
+RETURN

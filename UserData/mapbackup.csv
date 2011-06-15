@@ -5,7 +5,7 @@ ABC AUSTRALIA,1052,1052 - Trust Account,1052 - Trust Account,1010 - USD Bank Acc
 ABC AUSTRALIA,1080,1080 - Cash On Hand,1080 - Cash On Hand,1099 - Cash Suspense
 ABC AUSTRALIA,1200,1200 - Accounts Receivable,1200 - Accounts Receivable,1210 - Trade Debtors
 ABC AUSTRALIA,1400,1400 - Loans to Related Companies,1400 - Loans to Related Companies,1580 - Loans Other
-ABC AUSTRALIA,1402,1400 - Loans to Related Companies:1402 - Loans to ABC Singapore,1402 - Loans to ABC Singapore,1530 - Maxiplan Singapore
+ABC AUSTRALIA,1402,1400 - Loans to Related Companies:1402 - Loans to ABC Singapore,1402 - Loans to ABC Singapore,1530 - ABC Singapore
 ABC AUSTRALIA,1499,1499 - Undeposited Funds,1499 - Undeposited Funds,1590 - Undeposited Funds
 ABC AUSTRALIA,1560,1560 - Plant & Equipment,1560 - Plant & Equipment,1620 - Office Equip - At Cost
 ABC AUSTRALIA,1561,1560 - Plant & Equipment:1561 - Original Cost,1561 - Original Cost,1620 - Office Equip - At Cost
@@ -21,12 +21,12 @@ ABC AUSTRALIA,2102,2100 - Payroll Liabilities:2102 - Payroll Tax,2102 - Payroll 
 ABC AUSTRALIA,2105,2100 - Payroll Liabilities:2105 - Superannuation Liabilities,2105 - Superannuation Liabilities,2410 - Payroll Liabilities
 ABC AUSTRALIA,2110,2110 - Prepaid M&S Fees,2110 - Prepaid M&S Fees,2310 - Prepaid Maintenance
 ABC AUSTRALIA,2120,2120 - Loans - Related Parties,2120 - Loans - Related Parties,2190 - Loans from Affilites - Non Specific
-ABC AUSTRALIA,2121,2120 - Loans - Related Parties:2121 - Loans - XYZ Company,2121 - Loans - XYZ Company,2150 - Loans - Satoluja
-ABC AUSTRALIA,2122,2120 - Loans - Related Parties:2122 - Loans - ABC HK,2122 - Loans - ABC HK,2120 - Loans - Maxiplan HK
+ABC AUSTRALIA,2121,2120 - Loans - Related Parties:2121 - Loans - XYZ Company,2121 - Loans - XYZ Company,2150 - Loans - XYZ Company
+ABC AUSTRALIA,2122,2120 - Loans - Related Parties:2122 - Loans - ABC HK,2122 - Loans - ABC HK,2120 - Loans - ABC HK
 ABC AUSTRALIA,2140,2140 - Shareholders Loans,2140 - Shareholders Loans,2290 - Loans - Directors Other
-ABC AUSTRALIA,2141,2140 - Shareholders Loans:2141 - Loans - Shareholder 1,2141 - Loans - Shareholder 1,2210 - Loans - G C Parsons
-ABC AUSTRALIA,2142,2140 - Shareholders Loans:2142 - Loans - Shareholder 2,2142 - Loans - Shareholder 2,2220 - Loans - G Wilk
-ABC AUSTRALIA,2143,2140 - Shareholders Loans:2143 - Loans - Shareholder 3,2143 - Loans - Shareholder 3,2220 - Loans - G Wilk
+ABC AUSTRALIA,2141,2140 - Shareholders Loans:2141 - Loans - Shareholder 1,2141 - Loans - Shareholder 1,2210 - Loans - Director 1
+ABC AUSTRALIA,2142,2140 - Shareholders Loans:2142 - Loans - Shareholder 2,2142 - Loans - Shareholder 2,2220 - Loans - Director 2
+ABC AUSTRALIA,2143,2140 - Shareholders Loans:2143 - Loans - Shareholder 3,2143 - Loans - Shareholder 3,2290 - Loans - Directors Other
 ABC AUSTRALIA,2150,2150 - Loan from  Other,2150 - Loan from  Other,2290 - Loans - Directors Other
 ABC AUSTRALIA,2190,2190 - Accrued Expenses,2190 - Accrued Expenses,2510 - Accrued Expenses
 ABC AUSTRALIA,2200,2200 - Tax Payable,2200 - Tax Payable,2620 - Taxation Payable
@@ -123,12 +123,12 @@ ABC HONG KONG,1452,1450 - Deposits & Advances:1452 - Other Deposits,1452 - Other
 ABC HONG KONG,1453,1450 - Deposits & Advances:1453 - Utilities Deposits,1453 - Utilities Deposits,1340 - Deposits
 ABC HONG KONG,1460,1460 - Accrued Revenue,1460 - Accrued Revenue,1350 - Accrued Revenue
 ABC HONG KONG,1470,1470 - Directors Loans,1470 - Directors Loans,1490 - Directors Loans - Non Specific
-ABC HONG KONG,1471,1470 - Directors Loans:1471 - Director 1,1471 - Director 1,1410 - G C Parsons
-ABC HONG KONG,1472,1470 - Directors Loans:1472 - Director 2,1472 - Director 2,1420 - G Wilk
-ABC HONG KONG,1473,1470 - Directors Loans:1473 - Director 3,1473 - Director 3,1430 - T Lo
-ABC HONG KONG,1480,1480 - Loan - ABC Singapore,1480 - Loan - ABC Singapore,1530 - Maxiplan Singapore
-ABC HONG KONG,1485,1485 - Loans - ABC Australia,1485 - Loans - ABC Australia,1510 - Maxiplan Australia
-ABC HONG KONG,1490,1490 - Loans New Venture,1490 - Loans New Venture,1540 - Maxiplan UK
+ABC HONG KONG,1471,1470 - Directors Loans:1471 - Director 1,1471 - Director 1,1410 - Director 1
+ABC HONG KONG,1472,1470 - Directors Loans:1472 - Director 2,1472 - Director 2,1420 - Director 2
+ABC HONG KONG,1473,1470 - Directors Loans:1473 - Director 3,1473 - Director 3,1430 - Director 3
+ABC HONG KONG,1480,1480 - Loan - ABC Singapore,1480 - Loan - ABC Singapore,1530 - ABC Singapore
+ABC HONG KONG,1485,1485 - Loans - ABC Australia,1485 - Loans - ABC Australia,1510 - ABC Australia
+ABC HONG KONG,1490,1490 - Loans New Venture,1490 - Loans New Venture,1540 - New Venture
 ABC HONG KONG,1499,1499 - Undeposited Funds,1499 - Undeposited Funds,1590 - Undeposited Funds
 ABC HONG KONG,1510,1510 - Employee Advances,1510 - Employee Advances,1330 - Employee Advances
 ABC HONG KONG,1890,1890 - Office Equipment,1890 - Office Equipment,1620 - Office Equip - At Cost
@@ -143,10 +143,10 @@ ABC HONG KONG,1952,1950 - Fixtures & Fittings:1952 - Cost,1952 - Cost,1680 - Fix
 ABC HONG KONG,2000,2000 - Accounts Payable,2000 - Accounts Payable,2010 - Trade Creditors
 ABC HONG KONG,2060,2060 - Other Payables,2060 - Other Payables,2020 - Other Creditors
 ABC HONG KONG,2070,2070 - Loans from Affiliate Companies,2070 - Loans from Affiliate Companies,2190 - Loans from Affilites - Non Specific
-ABC HONG KONG,2080,2070 - Loans from Affiliate Companies:2080 - Loans ITH,2080 - Loans ITH,2160 - Loans - ITH
-ABC HONG KONG,2085,2070 - Loans from Affiliate Companies:2085 - Loan from Affiliate 1,2085 - Loan from Affiliate 1,2210 - Loans - G C Parsons
-ABC HONG KONG,2090,2070 - Loans from Affiliate Companies:2090 - Loan from XYZ Company,2090 - Loan from XYZ Company,2150 - Loans - Satoluja
-ABC HONG KONG,2095,2070 - Loans from Affiliate Companies:2095 - Loans from Affiliate 2,2095 - Loans from Affiliate 2,2220 - Loans - G Wilk
+ABC HONG KONG,2080,2070 - Loans from Affiliate Companies:2080 - Loans ITH,2080 - Loans ITH,2160 - Loans - ITH Company
+ABC HONG KONG,2085,2070 - Loans from Affiliate Companies:2085 - Loan from Affiliate 1,2085 - Loan from Affiliate 1,2210 - Loans - Director 1
+ABC HONG KONG,2090,2070 - Loans from Affiliate Companies:2090 - Loan from XYZ Company,2090 - Loan from XYZ Company,2150 - Loans - XYZ Company
+ABC HONG KONG,2095,2070 - Loans from Affiliate Companies:2095 - Loans from Affiliate 2,2095 - Loans from Affiliate 2,2220 - Loans - Director 2
 ABC HONG KONG,2100,2100 - Payroll Liabilities,2100 - Payroll Liabilities,2410 - Payroll Liabilities
 ABC HONG KONG,2200,2200 - GST Control,2200 - GST Control,2610 - GST Control
 ABC HONG KONG,2710,2710 - Prepaid Maintenance,2710 - Prepaid Maintenance,2310 - Prepaid Maintenance
@@ -292,7 +292,7 @@ ABC HONG KONG,6860,6800 - Taxes:6860 - Late Lodgement Penalty,6860 - Late Lodgem
 ABC HONG KONG,8010,8010 - Other Expenses,8010 - Other Expenses,8230 - Other Expense
 ABC HONG KONG,8012,8010 - Other Expenses:8012 - Dividend Paid,8012 - Dividend Paid,8230 - Other Expense
 ABC HONG KONG,8014,8010 - Other Expenses:8014 - Bad Debt,8014 - Bad Debt,8205 - Bad Debts
-ABC HONG KONG,8013,8013 - Impairment loss Amt due fm Subs,8013 - Impairment loss Amt due fm Subs,8250 - Impairment Loss Amt due fm Subs
+ABC HONG KONG,8013,8013 - Impairment loss Amt due fm Subs,8013 - Impairment loss Amt due fm Subs,8260 - Impairment Loss Amt due fm Subs
 ABC HONG KONG,8020,8020 - Curr. Exch Loss/(Gain),8020 - Curr. Exch Loss/(Gain),8250 - Exchange Loss/(Gain)
 ABC HONG KONG,8030,8030 - Unclaimed GST,8030 - Unclaimed GST,8240 - Tax
 ABC HONG KONG,8040,8040 - Witholding Tax Penalties,8040 - Witholding Tax Penalties,8240 - Tax
@@ -311,7 +311,7 @@ ABC SINGAPORE,1451,1450 - Deposits & Advances:1451 - Lease Deposit,1451 - Lease 
 ABC SINGAPORE,1452,1450 - Deposits & Advances:1452 - Other Deposits,1452 - Other Deposits,1340 - Deposits
 ABC SINGAPORE,1453,1450 - Deposits & Advances:1453 - Utilities Deposits,1453 - Utilities Deposits,1340 - Deposits
 ABC SINGAPORE,1470,1470 - Directors Loans,1470 - Directors Loans,1490 - Directors Loans - Non Specific
-ABC SINGAPORE,1471,1470 - Directors Loans:1471 - Director 1,1471 - Director 1,1410 - G C Parsons
+ABC SINGAPORE,1471,1470 - Directors Loans:1471 - Director 1,1471 - Director 1,1410 - Director 1
 ABC SINGAPORE,1485,1485 - Loans to DCF,1485 - Loans to DCF,1580 - Loans Other
 ABC SINGAPORE,1499,1499 - Undeposited Funds,1499 - Undeposited Funds,1590 - Undeposited Funds
 ABC SINGAPORE,1510,1510 - Employee Advances,1510 - Employee Advances,1330 - Employee Advances
@@ -328,13 +328,13 @@ ABC SINGAPORE,1952,1950 - Fixtures & Fittings:1952 - Cost,1952 - Cost,1680 - Fix
 ABC SINGAPORE,2000,2000 - Accounts Payable,2000 - Accounts Payable,2010 - Trade Creditors
 ABC SINGAPORE,2002,2002 - USD Accounts Payable,2002 - USD Accounts Payable,2010 - Trade Creditors
 ABC SINGAPORE,2010,2010 - Loans from Affiliate Companies,2010 - Loans from Affiliate Companies,2190 - Loans from Affilites - Non Specific
-ABC SINGAPORE,2012,2010 - Loans from Affiliate Companies:2012 - Loan ABC HK,2012 - Loan ABC HK,2120 - Loans - Maxiplan HK
-ABC SINGAPORE,2013,2010 - Loans from Affiliate Companies:2013 - Loan ABC Australia,2013 - Loan ABC Australia,2110 - Loans - Maxiplan Australia
+ABC SINGAPORE,2012,2010 - Loans from Affiliate Companies:2012 - Loan ABC HK,2012 - Loan ABC HK,2120 - Loans - ABC HK
+ABC SINGAPORE,2013,2010 - Loans from Affiliate Companies:2013 - Loan ABC Australia,2013 - Loan ABC Australia,2110 - Loans - ABC Australia
 ABC SINGAPORE,2014,2010 - Loans from Affiliate Companies:2014 - Loan BPS Singapore,2014 - Loan BPS Singapore,2190 - Loans from Affilites - Non Specific
 ABC SINGAPORE,2020,2020 - Shareholder Loans,2020 - Shareholder Loans,2290 - Loans - Directors Other
-ABC SINGAPORE,2021,2020 - Shareholder Loans:2021 - Shareholder 1,2021 - Shareholder 1,2210 - Loans - G C Parsons
-ABC SINGAPORE,2030,2030 - Loans Received - Shareholder 2,2030 - Loans Received - Shareholder 2,2220 - Loans - G Wilk
-ABC SINGAPORE,2040,2040 - Loans Received - XYZ Company,2040 - Loans Received - XYZ Company,2150 - Loans - Satoluja
+ABC SINGAPORE,2021,2020 - Shareholder Loans:2021 - Shareholder 1,2021 - Shareholder 1,2210 - Loans - Director 1
+ABC SINGAPORE,2030,2030 - Loans Received - Shareholder 2,2030 - Loans Received - Shareholder 2,2220 - Loans - Director 2
+ABC SINGAPORE,2040,2040 - Loans Received - XYZ Company,2040 - Loans Received - XYZ Company,2150 - Loans - XYZ Company
 ABC SINGAPORE,2060,2060 - Other Payables,2060 - Other Payables,2020 - Other Creditors
 ABC SINGAPORE,2062,2060 - Other Payables:2062 - ABC HK - Upgrade Accruals,2062 - ABC HK - Upgrade Accruals,2020 - Other Creditors
 ABC SINGAPORE,2100,2100 - Payroll Liabilities,2100 - Payroll Liabilities,2410 - Payroll Liabilities
