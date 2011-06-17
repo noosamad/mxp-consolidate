@@ -5,6 +5,8 @@
 .// This procedure reads the entities.ini file and updates the entities list in each model  
 .// 
 .///////////////////////////////////////////////////////////////////////////////
+DEFAULT taskstatus=0
+DEFAULT taskstatdesc=' '
 API_START
 _STORAGE='entity'
 READ STORAGE
@@ -136,6 +138,12 @@ FOR imodels,1,ITEMSINFO('models','ITEMS'),1
 		ENDFOR
 	ENDWHEN
 ENDFOR
+taskstatus=1
+FORMAT DATE 'DD-MM-YYYY' FOR _today
+FORMAT '99:99:99' FOR _time
+DECODE _TODAY INTO taskdate TYPE TEXT AT 1 TO 10
+DECODE _TIME INTO tasktime TYPE TEXT AT 1 TO 8
+taskstatdesc=concat('Last run on ',taskdate,' at ',tasktime)
 RETURN
 PROCEDURE dumptime
 DEFAULT checkpoint='Time is'

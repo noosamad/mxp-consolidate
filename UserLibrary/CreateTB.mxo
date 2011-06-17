@@ -1,4 +1,6 @@
 ﻿PROCEDURE reportScript
+DEFAULT taskstatus=0
+DEFAULT taskstatdesc=' '
 API_START
 ... initial list arrays used to store the COA data
 DEFAULT accname[1]=' '
@@ -20,6 +22,8 @@ _STORAGE='sections'
 READ STORAGE
 _STORAGE='defaults'
 READ STORAGE
+_STORAGE='entity'
+READ STORAGE
 DEFAULT curtransacc='6999 - Currency Translation Expense'
 COPYHTML <B>Building Trial Balance model for project 
 COPYHTML #_apilibrary
@@ -28,123 +32,75 @@ PROJECT #_apiLibrary
 MODEL 'CommonCOA'
 ... load all the data from the trasnaction model into list variables
 READ MEMORY 'All'
-accname=SERIES3
-accsection=SERIES4
-acctype=SERIES5
-accparent=SERIES6
-accflag=SERIES8
-nritems=ITEMSINFO('accname','ITEMS')
-...
-... create Profit and Loss Measures List
-...
-mcount=0
-quot='''
-...loop through each account to determine the items which are DETAIL items 
-... only details items need outputting as valid measures for eliminations
-FOR j,1,nritems,1
-    ... loop through finding all accounts belonging to this section
-    WHEN lowercase(acctype[j]) EQ 'detail' and lowercase(acctype[j]) NE curtransacc
-            mcount=mcount+1
-            measurelist[mcount]=accname[j]
-            mhide[mcount]='showData'
-            mbold[mcount]=0
-            mindent[mcount]=0
-            mexpression[mcount]=' '    
-    ENDWHEN
-ENDFOR
-... Update the Trial Balance model with the new measures
-PROJECT #_apiLibrary
-MODEL 'Trial Balance'
-	modcount=0
-	addcount=0
-	oldlist=_MODELMEASURES
-	oldcnt=ITEMSINFO('oldlist','ITEMS')
-	savoldcnt=oldcnt
-	savstr=oldlist[1]
-	WHEN ireset EQ 1
-		oldlist[1]=''
-		api_measure
-			with dimension = 'measure'
-			with option = 'DELETE'
-			with sourcemember = oldlist
-		DELETE variable oldlist
-		oldlist[1]=savstr
-		oldcnt=1
-	ENDWHEN
-	SWITCH 
-		CASE oldcnt LE 1 and oldlist[1] EQ 'HiddenDummyMeasure'
-			api_measure
-			with dimension = 'measure'
-			with option = 'ADD'
-			with sourceMember = measurelist
-			with expression = mexpression
-			with measureIndent = mindent
-			with hide = mhide
-			with measureBold = mbold
-			addcount=mcount
-			WHEN idump EQ 1
-				FOR n,1,mcount,1
-					msg=concat('Measure "',measurelist[n],'" processed with option ADD</BR>')
-					COPYHTML #msg
-				ENDFOR
-			ENDWHEN
-		OTHERWISE
-			FOR j,1,mcount,1
-				smname=measurelist[j]
-				smexpression=mexpression[j]
-				smindent=mindent[j]
-				smhide=mhide[j]
-				smbold=mbold[j]
-				smafter=' '
-				WHEN inlist(smname,'oldlist',1,'MATCH') GT 0
-					option='modify'
-				ELSE
-					option='add'
-					WHEN j GT 1
-						smafter=measurelist[j-1]
-					ELSE
-						smafter='HiddenDummyMeasure'
-					ENDWHEN
-				ENDWHEN
-				WHEN idump EQ 1
-					msg=concat('Measure "',measurelist[j],'" processed with option ',option,'</BR>')
-					COPYHTML #msg
-				ENDWHEN
-				SWITCH
-					CASE option EQ 'add'
-						addcount=addcount + 1
-						api_measure
-						with dimension = 'measure'
-						with option = #option
-						with sourceMember = smname
-						with expression = smexpression
-						with measureIndent = smindent
-						with hide = smhide
-						with measureBold = smbold
-						with aftermember = smafter
-					CASE option EQ 'modify'
-						modcount=modcount + 1
-						api_measure
-						with dimension = 'measure'
-						with option = #option
-						with sourceMember = smname
-						with expression = smexpression
-						with measureIndent = smindent
-						with hide = smhide
-						with measureBold = smbold
-				ENDSWITCH
-			ENDFOR
-	ENDSWITCH
-msg1=concat('There were ',savoldcnt-1,' existing measures in the model</BR>')
-msg2=concat(addcount,' New Measures have been added</BR>')
-msg3=concat(modcount,' Measures have been modified</BR>')
-COPYHTML #msg1
-WHEN ireset EQ 1
-	COPYHTML Reset mode is on, all existing measures deleted</BR>
+WHEN ITEMSINFO('SERIES1','ITEMS') NE 0
+	accname=SERIES3
+	accsection=SERIES4
+	acctype=SERIES5
+	accparent=SERIES6
+	accflag=SERIES8
+	nritems=ITEMSINFO('accname','ITEMS')
+	...
+	... create Profit and Loss Measures List
+	...
+	mcount=0
+	quot='''
+	...loop through each account to determine the items which are DETAIL items 
+	... only details items need outputting as valid measures for eliminations
+	FOR j,1,nritems,1
+	    ... loop through finding all accounts belonging to this section
+	    WHEN lowercase(acctype[j]) EQ 'detail' and lowercase(acctype[j]) NE curtransacc
+		    mcount=mcount+1
+		    measurelist[mcount]=accname[j]
+		    mhide[mcount]='showData'
+		    mbold[mcount]=0
+		    mindent[mcount]=0
+		    mexpression[mcount]=' '
+		    mperiodoption[mcount]='SUM'
+	    ENDWHEN
+	ENDFOR
+	UpdateModelMeasures
+		with modelname='Trial Balance'
+		with dimname='Measure'
+		with measurelist=measurelist
+		with mexpression=mexpression
+		with mindent=mindent
+		with mhide=mhide
+		with mbold=mbold
+		with mperiodoption=mperiodoption
+		with ireset=ireset
+		with idump=idump
+.// Now update the link between Eliminations and Trial Balance to load the 
+.// eliminations only
+	project ''
+	FOR j,1,ITEMSINFO('GroupName','ITEMS'),1
+		srcmem[j]=concat(groupname[j],' ',txtelims)
+		tarmem[j]=srcmem[j]
+		maptype[j]='MANUAL'
+		srcdim[j]='Entity'
+		tardim[j]='Entity'
+	ENDFOR
+	api_link
+	  with option = 'modify'
+	  with linkName = 'CopyElims>TB'
+	  with sourceProject = _apilibrary
+	  with sourceprojectOwner = 'gparsons'
+	  with sourceModel = 'Eliminations'
+	  with mapsourceDimension = srcdim
+	  with mapdestinationDimension = tardim
+	  with mapType = maptype
+	  with mapsourceMember1 = srcmem
+	  with mapdestinationMember1 = tarmem
+	COPYHTML Eliminations - Trial Balance Link modified
+	taskstatus=1
+	FORMAT DATE 'DD-MM-YYYY' FOR _today
+	FORMAT '99:99:99' FOR _time
+	DECODE _TODAY INTO taskdate TYPE TEXT AT 1 TO 10
+	DECODE _TIME INTO tasktime TYPE TEXT AT 1 TO 8
+	taskstatdesc=concat('Last run on ',taskdate,' at ',tasktime)
 ELSE
-	COPYHTML Reset mode is off, existing accounts will be updated</BR>
+	COPYHTML You must load the Common Chart of Accounts before you can create the Trial Balance model</BR>
+	taskstatus=0
+	taskstatdesc='Not run'
 ENDWHEN
-COPYHTML #msg2
-COPYHTML #msg3
 API_END
 RETURN

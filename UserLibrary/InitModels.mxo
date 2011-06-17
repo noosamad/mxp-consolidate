@@ -4,32 +4,10 @@ _STORAGE='models'
 READ STORAGE
 _STORAGE='entity'
 READ STORAGE
-GLOBAL g_error
-g_error = 0
 FOR imodels,1,ITEMSINFO('models','ITEMS'),1
 	WHEN lowercase(modelscreatevalid[imodels]) EQ 'yes' 
-	    PROJECT #_apiLibrary
-	    MODEL #models[imodels] WRITE 
-	    nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
-	    mlist=_MODELMEASURES
-	    nrmeasures=ITEMSINFO('mlist','ITEMS')
-	    LOCATEMXD by 'version','entity','measure'
-	    FOR entcnt,1,nrmembers,1
-	    	FOR mcnt,1,nrmeasures,1
-	    	    	             
-	    		ONERROR API_NOERROR
-	    		LOCATEMXD AT 'ACTUAL',mxentList[entcnt],mlist[mcnt]
-	    		ONERROR                 
-	    		WHEN g_error
-	    			.//// combination does not exist so create the combination
-	    			LOCATEMXD CREATE AT 'ACTUAL',mxentList[entcnt],mlist[mcnt]
-	    			amount[1] = 0
-	    		ENDWHEN
-	    	ENDFOR
-	    ENDFOR
-	    CLOSE DATABASE
-
-	COPYHTML Models Initialised</BR>
+	    				createcombinations
+					WITH modelname=models[imodels]
 	ENDWHEN
 ENDFOR
 RETURN

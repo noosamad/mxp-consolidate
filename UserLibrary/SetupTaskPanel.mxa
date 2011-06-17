@@ -20,28 +20,79 @@ when mxorequested ne ''
     decode mxorequested into nr type value
         cmdx=mxoName[nr]        
 .       ##cmdx
+taskstatus=0
+taskstatdesc=' '
+depstat=0
    SWITCH      
        CASE nr EQ 1
+       	       CheckDependency
+       	       WHEN statblock NE 1
                UpdateEntities
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc
+               ENDWHEN
        CASE nr EQ 2
-               CreateCCOATable
+               	CheckDependency
+               	WHEN statblock NE 1
+       		CreateCCOATable
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc  
+               	ENDWHEN
        CASE nr EQ 3
+	       CheckDependency
+	       WHEN statblock NE 1
                CreatePnL
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc
+               ENDWHEN
        CASE nr EQ 4
-               CreateBS
+	       CheckDependency
+	       WHEN statblock NE 1
+       	       CreateBS
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc
+               ENDWHEN
        CASE nr EQ 5
-               CreateOB
+	       CheckDependency
+	       WHEN statblock NE 1
+       		CreateOB
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc 
+               	ENDWHEN
        CASE nr EQ 6
+	       CheckDependency
+	       WHEN statblock NE 1
                CreateElims
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc 
+               	ENDWHEN
        CASE nr EQ 7
+	       CheckDependency
+	       WHEN statblock NE 1
                CreateTB
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc   
+               ENDWHEN
        CASE nr EQ 8
+	       CheckDependency
+	       WHEN statblock NE 1
                CreateElimFlags
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc
+               ENDWHEN
        CASE nr EQ 9
+	       CheckDependency
+	       WHEN statblock NE 1
                LoadOrigCOA
-       CASE nr EQ 10
-       		InitModels
+               	WITH taskstatus AS taskstatus
+               	WITH taskstatdesc AS taskstatdesc  
+               ENDWHEN
    ENDSWITCH
+taskstat[nr]=taskstatus
+taskstatmsg[nr]=taskstatdesc
+_STORAGE='setuptask'
+xx=WRITEINFO('taskstat','taskstat')
+xx=WRITEINFO('taskstatmsg','taskstatmsg')
 .    api_runTask
 .    with mxo=mxoName[nr]
 .    with mxoDesc=mxoDescription[nr]
@@ -59,35 +110,61 @@ Procedure showOptions
 startform
 COPYHTML <input type="hidden" name="mxorequested" value="">
 .// Main header
-cubeLen = 5
+cubeLen = 4
 FORMAT '9' for cubeLen
-ADDTEXT #line 0, '<table><tr><td colspan="', cubeLen, '" style="border-bottom:1pt solid black;font-size:large">SETUP TASKS</td></tr>'
+line=concat('<table cellspacing="0" cellpadding="2" width="70%" align="left" border="1" bordercolor="#dfdfff"><tr><td colspan="', cubeLen, '" style="font-size:large; font-color:#FFFFFF">',taskpaneltitle,'</td></tr>')
 COPYHTML #line
 COPYHTML <tr>
-.FOR ac, 1, cubeLen, 1
-.    ADDTEXT #line 0, '<th>', 'ABC', '</th>'
-.    COPYHTML #line
-.ENDFOR
 COPYHTML </tr>
 ..// Model actions
 FORMAT '<<9' FOR k
-FORMAT '<<9' for j
+FORMAT '<9' for j
 newcol=0
 FOR j, 1, itemsinfo('mxoName', 'items'), 1
-        WHEN newcol EQ 0
-                COPYHTML <tr>
-        ENDWHEN
-        newcol=newcol+1
-        line=concat('<td style="padding: 0 15px"> <input type="image" value="',mxoDescription[j],'" src="images/',mxoicon[j],'" onclick="with(this.form){mxorequested.value=''',j,''';}" /></td>')
+        COPYHTML <tr>
+       
+        line=concat('<td width="10%" bordercolor="#dfdfff" align="center"> <input type="image" value="',mxoDescription[j],'" src="images/',mxoicon[j],'" onclick="with(this.form){mxorequested.value=''',j,''';}" /></td>')
         COPYHTML #line
-        WHEN newcol EQ cubeLen
-                COPYHTML </tr>
-                newcol=0
+        line=concat('<td width="50%" bordercolor="#dfdfff">',mxoDescription[j],'</td>')
+        COPYHTML #line
+        WHEN taskstat[j] EQ 1
+        	taskflag='checkmark.png'
+        ELSE
+        	taskflag='dialog-warning.png'
         ENDWHEN
-ENDFOR
-WHEN newcol GT 0 and newcol LT cubeLen
+        line=concat('<td width="5%" bordercolor="#dfdfff" align="center" > <img border="0" width="20" height="20" src="images/',taskflag,'"></td>')
+        COPYHTML #line
+        line=concat('<td width="35%" bordercolor="#dfdfff">',taskstatmsg[j],'</td>')
+        COPYHTML #line
         COPYHTML </tr>
+ENDFOR
 copyhtml </table>
 endform
 RETURN
+PROCEDURE CheckDependency
+deplist=taskdep[nr]
+depnos[1]=0
+depname[1]=''
+statblock=0
+nrdeps=PARSECSV(deplist,'VALUE',0)
+nrdeps=nrdeps+1
+WHEN lowercase(deplist) NE 'none' AND nrdeps NE 0
+	FOR ij,1,nrdeps,1
+		depnos[ij]=PARSECSV(deplist,'VALUE',ij)
+		depname[ij]=mxoname[depnos[ij]]
+		WHEN taskstat[depnos[ij]] EQ 1
+			status='SATISFIED'
+			statblock=0
+		ELSE
+			status='NOT SATISFIED'
+			statblock=1
+			msg=concat('Dependency ',#depname[ij],' ',status,'</br>')
+			COPYHTML #msg
+			COPYHTML **** PROCESS NOT EXECUTED ***</br>
+		ENDWHEN	
+	ENDFOR
+ELSE
+	COPYHTML No Dependencies</br>
+	statblock=0
+ENDWHEN
 RETURN

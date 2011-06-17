@@ -1,4 +1,6 @@
 PROCEDURE reportScript
+DEFAULT taskstatus=0
+DEFAULT taskstatdesc=' '
 API_START
 ... initial list arrays used to store the COA data
 DEFAULT accname[1]=' '
@@ -157,5 +159,11 @@ CurAcct=measurelist[j]
 	locatemxd create noerror at #CurVersion, #CurAcct
 	amount[1]=mflag[j]
 ENDFOR
+taskstatus=1
+FORMAT DATE 'DD-MM-YYYY' FOR _today
+FORMAT '99:99:99' FOR _time
+DECODE _TODAY INTO taskdate TYPE TEXT AT 1 TO 10
+DECODE _TIME INTO tasktime TYPE TEXT AT 1 TO 8
+taskstatdesc=concat('Last run on ',taskdate,' at ',tasktime)
 API_END
 RETURN

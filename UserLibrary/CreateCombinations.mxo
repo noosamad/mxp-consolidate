@@ -1,0 +1,34 @@
+PROCEDURE createcombinations
+.///////////////////////////////////////////////////////////////////////////////
+.///  PROCEDURE CREATECOMBINATIONS
+.///  This procedure creates all valid combinations for the Profit and Loss and
+.///  Balance Sheet models. Can also be used for any other model you want to
+.///  ensure has valid combinations for all sections and measures
+.///////////////////////////////////////////////////////////////////////////////
+DEFAULT modelname=''
+GLOBAL g_error
+g_error = 0
+WHEN modelname NE ''
+	PROJECT #_apiLibrary
+	MODEL #modelname WRITE 
+	nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+	mlist=_MODELMEASURES
+	nrmeasures=ITEMSINFO('mlist','ITEMS')
+	LOCATEMXD by 'version','entity','measure'
+	FOR entcnt,1,nrmembers,1
+		FOR mcnt,1,nrmeasures,1
+	    		ONERROR API_NOERROR
+	    		LOCATEMXD AT 'ACTUAL',mxentList[entcnt],mlist[mcnt]
+	    		ONERROR                 
+	    		WHEN g_error
+.//// combination does not exist so create the combination
+	    			LOCATEMXD CREATE AT 'ACTUAL',mxentList[entcnt],mlist[mcnt]
+	    			amount[1] = 0
+	    		ENDWHEN
+	    	ENDFOR
+	ENDFOR
+	CLOSE DATABASE
+	msg=concat(#modelname,' initialised and valid combinations created','</BR>')
+	COPYHTML #msg
+ENDWHEN
+RETURN

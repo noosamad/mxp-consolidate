@@ -1,0 +1,132 @@
+PROCEDURE UpdateModelMeasures
+.//////////////////////////////////////////////////////////////////////////////
+.//	This module updates the measures for the specified model
+.//
+.//     WITH modelname='mymodel'   name of model to be populated
+.//	WITH dimname='Measure' or 'MeasureAndConsolidated' or 'Consolidated'
+.//     WITH measurelist= variable list of measures to be added or updated
+.//     WITH mexpression= variable list of expressions (' ' for none)
+.//	WITH mindent=n where n is the number of characters to indent
+.//	WITH mbold=0 for nobold and 1 for bold
+.//     WITH mperiodoption='SUM' for default or 'LAST PERIOD' etc
+.//	WITH ireset=ireset (can override parameter setting if you wish)
+.//	WITH idump=idump (can override parameter by set idump to 0 or 1 if you wish)
+.//	WITH populate=1 (will force creation of every combination)
+.//////////////////////////////////////////////////////////////////////////////
+DEFAULT modelname=''
+DEFAULT dimname='MeasureAndConsolidated'
+DEFAULT measurelist[1]=''
+DEFAULT mexpression[1]=''
+DEFAULT mindent[1]=''
+DEFAULT mhide[1]=''
+DEFAULT mbold[1]=''
+DEFAULT mperiodoption[1]='SUM'
+DEFAULT ireset=0
+DEFAULT idump=0
+DEFAULT populate=0
+PROJECT #_apiLibrary
+MODEL #modelname
+mcount=itemsinfo('measurelist','items')
+modcount=0
+addcount=0
+oldlist=_MODELMEASURES
+oldcnt=ITEMSINFO('oldlist','ITEMS')
+savoldcnt=oldcnt
+savstr=oldlist[1]
+.//	If RESET mode, then delete all existing measures except the first
+.//	one (HiddenDummmyMeasure).
+WHEN ireset EQ 1
+	oldlist[1]=''
+	api_measure
+		with dimension = dimname
+		with option = 'DELETE'
+		with sourcemember = oldlist
+	DELETE variable oldlist
+	oldlist[1]=savstr
+	oldcnt=1
+ENDWHEN
+SWITCH 
+	CASE oldcnt LE 1 and oldlist[1] EQ 'HiddenDummyMeasure'
+		api_measure
+			with dimension = dimname
+			with option = 'ADD'
+			with sourceMember = measurelist
+			with expression = mexpression
+			with measureIndent = mindent
+			with hide = mhide
+			with measureBold = mbold
+			with periodoption = mperiodoption
+			addcount=mcount
+		WHEN idump EQ 1
+			FOR n,1,mcount,1
+				msg=concat('Measure "',measurelist[n],'" processed with option ADD</BR>')
+				COPYHTML #msg
+			ENDFOR
+		ENDWHEN
+		CLOSE DATABASE
+		WHEN populate EQ 1
+			createcombinations
+				WITH modelname = modelname
+		ENDWHEN
+	OTHERWISE
+		FOR j,1,mcount,1
+			smname=measurelist[j]
+			smexpression=mexpression[j]
+			smindent=mindent[j]
+			smhide=mhide[j]
+			smbold=mbold[j]
+			smafter=' '
+			smperiodoption=mperiodoption[j]
+			WHEN inlist(smname,'oldlist',1,'MATCH') GT 0
+				option='modify'
+			ELSE
+				option='add'
+				WHEN j GT 1
+					smafter=measurelist[j-1]
+				ELSE
+					smafter='HiddenDummyMeasure'
+				ENDWHEN
+			ENDWHEN
+			WHEN idump EQ 1
+				msg=concat('Measure "',measurelist[j],'" processed with option ',option,'</BR>')
+				COPYHTML #msg
+			ENDWHEN
+			SWITCH
+				CASE option EQ 'add'
+					addcount=addcount + 1
+					api_measure
+					with dimension = dimname
+					with option = #option
+					with sourceMember = smname
+					with expression = smexpression
+					with measureIndent = smindent
+					with hide = smhide
+					with measureBold = smbold
+					with aftermember = smafter
+					with periodoption = smperiodoption
+				CASE option EQ 'modify'
+					modcount=modcount + 1
+					api_measure
+					with dimension = dimname
+					with option = #option
+					with sourceMember = smname
+					with expression = smexpression
+					with measureIndent = smindent
+					with hide = smhide
+					with measureBold = smbold
+					with periodoption =smperiodoption
+			ENDSWITCH
+		ENDFOR
+	ENDSWITCH
+	msg1=concat('There were ',savoldcnt-1,' existing measures in the model</BR>')
+	msg2=concat(addcount,' New Measures have been added</BR>')
+	msg3=concat(modcount,' Measures have been modified</BR>')
+	COPYHTML #msg1
+	WHEN ireset EQ 1
+		COPYHTML Reset mode is on, all existing measures deleted</BR>
+	ELSE
+		COPYHTML Reset mode is off, existing accounts will be updated</BR>
+	ENDWHEN
+	COPYHTML #msg2
+	COPYHTML #msg3
+RETURN
