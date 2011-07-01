@@ -1,0 +1,243 @@
+﻿PROCEDURE EditEntityTable
+.///////////////////////////////////////////////////////////////////////////////
+.// Procedure: 	EditEntityTable
+.// Author: 	Greg Parsons/Jaymes Deok
+.// Description: This procedure provides an input form for users to add or
+.//		delete items from the entity.ini file
+.// 
+.// Date Written:20th June 2011
+.// Parameters passed into this procedure are:
+.//	taskstatus - returned with the any update to the task status (0 or 1)
+.//	taskstatdesc - returned with the description of the task status
+.//	taskstatid - the entry number for this task in the setuptask.ini file
+.///////////////////////////////////////////////////////////////////////////////
+DEFAULT taskstatus=0
+DEFAULT taskstatdesc=' '
+DEFAULT taskid=1
+API_START
+savStorage = _STORAGE
+_STORAGE='defaults'
+READ STORAGE
+
+
+entName = GETFORMTEXT('entName','')
+entGroup = GETFORMTEXT('entGroup','')
+entCurrency = GETFORMTEXT('entCurrency','')
+entData = GETFORMTEXT('entData','')
+entProfile = GETFORMTEXT('entProfile','')
+entCOAFile = GETFORMTEXT('entCOAFile','')
+entityIndex = GETFORMTEXT('entityIndex','')
+
+DECODE entityIndex INTO valEntityIndex TYPE VALUE
+GLOBAL g_error
+g_error = 0
+errorHTML = ''
+htmlMsg = ''
+ONERROR API_NOERROR
+_STORAGE = 'entity'
+READ STORAGE
+nrEnt = ITEMSINFO('entity','ITEMS')
+nrGroup = ITEMSINFO('group','ITEMS')
+ONERROR
+readError = g_error
+WHEN readError
+    WRITE STORAGE
+    errorHTML = CONCAT(_STORAGE,'.ini does not exist<br>A new ',_STORAGE,'.ini has been created for input.')
+ENDWHEN
+ONERROR API_NOERROR
+   matchGroup = INLIST(entGroup,'group',1,'MATCH')
+ONERROR
+
+WHEN entityIndex EQ '0' or entityIndex EQ ''
+    WHEN entName NE '' AND entGroup NE ''
+        entity[nrEnt+1] = entName
+        entitygroup[nrEnt+1]=entGroup
+        WHEN entCurrency NE ''
+             entitycurrency[nrEnt+1]=entCurrency
+        ELSE
+             entitycurrency[nrEnt+1]='USD'
+        ENDWHEN
+        entitydatafile[nrEnt+1]=entData
+        entitydataprofile[nrEnt+1]=entProfile
+        entitycoafile[nrEnt+1]=entCOAFile
+        
+        WHEN matchGroup EQ 0
+            group[nrGroup+1] = entGroup
+            groupname[nrGroup+1] = CONCAT(entGroup,' Group')
+            groupcurrency[nrGroup+1] = 'USD'
+            _STORAGE='entity'
+            xx = WRITEINFO('group','group')
+            xx = WRITEINFO('groupname','groupname')
+            xx = WRITEINFO('groupcurrency','groupcurrency')
+            
+            htmlMsg = CONCAT('New group, ',entGroup,',has been added.')
+        ENDWHEN
+    ENDWHEN
+ELSE
+    WHEN nrEnt GT 0
+        htmlMsg = CONCAT('Data for entity, ',entity[valEntityIndex],', has been deleted.')
+        entity[valEntityIndex] = ''
+        entitygroup[valEntityIndex] = ''
+        entitycurrency[valEntityIndex] = ''
+        entitydatafile[valEntityIndex] = ''
+        entitydataprofile[valEntityIndex] = ''
+        entitycoafile[valEntityIndex] = ''
+    ENDWHEN
+ENDWHEN
+_STORAGE='entity'    
+xx = WRITEINFO('entity','entity')
+xx = WRITEINFO('entitygroup','entitygroup')
+xx = WRITEINFO('entitycurrency','entitycurrency')
+xx = WRITEINFO('entitydatafile','entitydatafile')
+xx = WRITEINFO('entitydataprofile','entitydataprofile')
+xx = WRITEINFO('entitycoafile','entitycoafile')
+.// set the taskstatus and status description for when we return to setuptaskpanel
+FORMAT DATE 'DD-MM-YYYY' FOR _today
+	FORMAT '99:99:99' FOR _time
+	DECODE _TODAY INTO taskdate TYPE TEXT AT 1 TO 10
+	DECODE _TIME INTO tasktime TYPE TEXT AT 1 TO 8
+	taskstatdesc=concat('Last run on ',taskdate,' at ',tasktime)
+WHEN itemsinfo('entity','items')  GT 0
+	taskstatus=1
+ELSE
+	taskstatus=0
+	taskstatdesc='No Entities defined'
+ENDWHEN 
+.// Update task status for SetupTaskPanel in case we dont return from here
+_STORAGE='setuptask'
+READ STORAGE
+taskstat[taskid]=taskstatus
+taskstatmsg[taskid]=taskstatdesc
+xx=WRITEINFO('taskstat','taskstat')
+xx=WRITEINFO('taskstatmsg','taskstatmsg')
+STARTFORM
+USING 'COPYHTML'
+<SCRIPT LANGUAGE="JavaScript">
+function validateForm(myForm){
+    if(myForm.entName.value == '' || myForm.entGroup.value == '' || myForm.entCurrency.value == '' || myForm.entData.value == '' || myForm.entProfile.value == '' || myForm.entCOAFile.value == ''){
+        alert("All fields must be specified!");
+    }else{
+        var answer = confirm("Save Entity Details?")
+        if(answer){
+            myForm.submit();
+        }
+    }
+}
+function deleteEntity(myForm,jsEntity){
+    if(myForm.entityIndex.value != "0"){
+        msg = "Delete data for "+jsEntity+"?"
+        var answer = confirm(msg)
+        if(answer){
+            myForm.submit();
+        }else{
+            myForm.entityIndex.value = "0"
+        }
+    }
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+#htmlMsg
+#errorHTML
+<table width=80% border="0" cellspacing="0" cellpadding="2">
+ <th colspan=6 bgcolor=#CCC0C0>Entity Information</th>
+ <tr bgcolor=#DCDCDC>
+  <td>Entity Name</td>
+  <td>Group</td>
+  <td>Currency</td>
+  <td>Default Data</td>
+  <td>Fin Profile</td>
+  <td>COA File</td>
+                         
+ </tr>
+ 
+ <tr>
+  <td><input name="entName" style="WIDTH: 250px"></td>
+  <td><input name="entGroup" style="WIDTH: 100px"></td>
+  <td><select name="entCurrency" style="WIDTH: 100px">
+ENDUSING
+FOR j,1,ITEMSINFO('Currencyname','ITEMS'),1
+        msg=concat('<option value="',currencyname[j],'">',currencyname[j],'</option>')
+        COPYHTML #msg
+ENDFOR
+USING 'COPYHTML'
+</select>
+</td>
+<td><input name="entData" style="WIDTH: 120px"></td>
+<td><select name="entProfile" STYLE="WIDTH: 120px">
+ENDUSING
+FOR j,1,ITEMSINFO('datatype','items'),1
+        msg=concat('<option value="',datacode[j],'">',datatype[j],'</option>')
+        COPYHTML #msg
+ENDFOR
+USING 'COPYHTML'
+</td>
+<td><input name="entCOAFile" style="WIDTH: 120px"></td>
+</tr>
+ 
+ <tr>
+  <td colspan=3><input type=button value="Add" onClick="validateForm(this.form);"></td>
+ </tr>
+</table>
+<hr>
+ 
+<table width=80% border="0" cellspacing="0" cellpadding="2">
+ <th colspan=7 bgcolor=#C0C0C0>Entity Information</th>
+ <tr bgcolor=#DCDCDC>
+  <td>Entity Name</td>
+  <td>Group</td>
+  <td>Currency</td>
+  <td>Default Data</td>
+  <td>Fin Profile</td>
+  <td>COA File</td>
+  <td>Option</td>
+ </tr>
+ENDUSING
+ 
+ 
+ONERROR API_NOERROR
+    nrEnt = ITEMSINFO('entity','ITEMS')
+    WHEN nrEnt EQ 0
+        COPYHTML <tr><td>No records</td></tr>
+    ENDWHEN
+    COPYHTML <input type=hidden name="entityIndex" value="0">
+    FOR i,1,nrEnt,1
+        WHEN i mod 2 EQ 1
+            COPYHTML <tr bgcolor="#B0E0E6">
+        ELSE
+            COPYHTML <tr>
+        ENDWHEN
+        itxt = CONCAT('',i)
+        USING 'COPYHTML'
+         <td width=150>
+          #entity[i]
+         </td>
+         <td width=75>
+          #entitygroup[i]
+         </td>
+         <td width=50>
+          #entitycurrency[i]
+         </td>
+         <td width=100>
+          #entitydatafile[i]
+         </td>
+         <td width=40>
+          #entitydataprofile[i]
+         </td>
+         <td width=100>
+          #entitycoafile[i]
+         </td>
+         <td width=30>
+         ENDUSING
+         
+        str = ''
+        ADDTEXT str '<input type=button value="Delete Entity" onClick="this.form.entityIndex.value=''',itxt,''';deleteEntity(this.form,''',#entity[i],''');"></td></tr>'
+        COPYHTML #str
+         
+    ENDFOR
+ONERROR
+
+COPYHTML </FORM></table>
+  
+API_END
+RETURN

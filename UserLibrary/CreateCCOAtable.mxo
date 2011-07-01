@@ -9,6 +9,7 @@
 .///////////////////////////////////////////////////////////////////////////////
 DEFAULT taskstatus=0
 DEFAULT taskstatdesc=' '
+DEFAULT taskid=1
 API_START
 DEFAULT recignorelist[1]=1
 DEFAULT series1[1]=' '
@@ -128,6 +129,7 @@ COPYHTML #precs
 _STORAGE='sections'
 DELETE STORAGE
 WRITE STORAGE variables seclist,bsseclist,pnlseclist
+.// Now update the task status and description
 taskstatus=1
 FORMAT DATE 'DD-MM-YYYY' FOR _today
 FORMAT '99:99:99' FOR _time

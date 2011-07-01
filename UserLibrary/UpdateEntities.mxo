@@ -2,11 +2,13 @@
 .///////////////////////////////////////////////////////////////////////////////
 .// Procedure: UpdateEntities
 .// Author: Greg Parsons
-.// This procedure reads the entities.ini file and updates the entities list in each model  
-.// 
+.// This procedure reads the entities.ini file and updates the entities list
+.// in each model
+.//
 .///////////////////////////////////////////////////////////////////////////////
 DEFAULT taskstatus=0
 DEFAULT taskstatdesc=' '
+DEFAULT taskid=0
 API_START
 _STORAGE='entity'
 READ STORAGE
@@ -16,127 +18,145 @@ _STORAGE='models'
 READ STORAGE
 dumptime
 FOR imodels,1,ITEMSINFO('models','ITEMS'),1
-	WHEN lowercase(modelsdimEntity[imodels]) NE 'none'
-		PROJECT #_apilibrary
-		MODEL #models[imodels]
-		nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
-		newlist=0
-		existing=0
-		SWITCH
-			CASE nrmembers EQ 0
-				newlist=1
-				existing=0
-			CASE lowercase(mxentList[1]) EQ 'dummyentity' AND nrmembers EQ 1
-				newlist=1
-				existing=1
-			OTHERWISE
-				newlist=0
-				existing=nrmembers
-		ENDSWITCH
-		DELETE VARIABLE memlst
-		DELETE VARIABLE mempar
-		DELETE VARIABLE memcur
-		nrmems=0
-		FOR igroup,1,ITEMSINFO('group','ITEMS'),1
-			msg=concat('Processing Group ',group[igroup],', For Project ',#_apilibrary,', Model ',models[imodels],'</br>')
-			COPYHTML #msg
-			dumptime
-			WHEN idump GT 0
-				msg=concat('Update Type is ',#newlist,'</br>')
-				COPYHTML #msg
-				dumptime
-				WHEN existing GT 0
-					FOR j,1,nrmembers,1
-						msg=concat('~ Entity is ',mxentlist[j],', Is Parent=',mxentIsParentList[j],',Level=',mxLevelList[j],'</br>')
-						COPYHTML #msg
-					ENDFOR
-				ENDWHEN
-			ENDWHEN
-			dumptime
-	.// build arrays with the new structure
-			WHEN lowercase(modelsdimEntity[imodels]) EQ 'full'
-				nrmems=nrmems+1
-				memlst[nrmems]=groupname[igroup]
-				memcur[nrmems]=groupcurrency[igroup]
-				mempar[nrmems]=' '
-			ENDWHEN
-			WHEN lowercase(modelsdimEntity[imodels]) EQ 'full' OR lowercase(modelsdimEntity[imodels]) EQ 'elimnode' OR lowercase(modelsdimEntity[imodels]) EQ 'leafelim'
-				nrmems=nrmems+1
-				memlst[nrmems]=concat(groupname[igroup],' ',txtelims)
-				memcur[nrmems]=groupcurrency[igroup]
-				WHEN lowercase(modelsdimEntity[imodels]) EQ 'leafelim'
-					mempar[nrmems]=' '
-				ELSE
-					mempar[nrmems]=groupname[igroup]
-				ENDWHEN
-			ENDWHEN
-			WHEN lowercase(modelsdimEntity[imodels]) EQ 'full'
-				nrmems=nrmems+1
-				memlst[nrmems]=concat(group[igroup],' ',txtnoelims)
-				memcur[nrmems]=groupcurrency[igroup]
-				mempar[nrmems]=groupname[igroup]
-			ENDWHEN
-			FOR j,1,ITEMSINFO('entity','ITEMS'),1
-				WHEN lowercase(entitygroup[j]) EQ lowercase(group[igroup])
-					nrmems=nrmems+1
-					memlst[nrmems]=entity[j]
-					memcur[nrmems]=entitycurrency[j]
-					SWITCH
-						CASE lowercase(modelsdimEntity[imodels]) EQ 'leaf'
-							mempar[nrmems]=' '
-						CASE lowercase(modelsdimEntity[imodels]) EQ 'full'
-							mempar[nrmems]=concat(entitygroup[j],' ',txtnoelims)
-						CASE lowercase(modelsdimEntity[imodels]) EQ 'elimnode'
-							mempar[nrmems]=concat(groupname[igroup],' ',txtelims)
-					ENDSWITCH
-				ENDWHEN
-			ENDFOR
-			dumptime
-			WITH checkpoint='Arrays Built Now Update'
-	.// If it is a new list just add and delete the dummyentity marker
-			WHEN newlist EQ 1 OR ireset EQ 1
-				WHEN ireset EQ 1 AND nrmembers GT 1
-					delix=0
-					delete variable templst
-					FOR j,2,nrmembers,1
-						delix=delix+1
-						templst[delix]=mxentlist[j]
-					ENDFOR		
-					API_MEMBER
-						WITH option='DELETE'
-						WITH dimension='Entity'
-						WITH sourcemember=templst	
-					dumptime
-					WITH checkpoint='Existing Members Deleted at'
-					API_MEMBER
-						WITH option='RENAME'
-						WITH dimension='Entity'
-						WITH sourcemember=mxentlist[1]
-						WITH destinationmember='DummyEntity'
-					dumptime
-					WITH checkpoint='Renamed DummyEntity'
-				ENDWHEN
-				API_MEMBER
-					WITH option='ADD'
-					WITH dimension='Entity'
-					WITH sourcemember=memlst
-					WITH parent=mempar
-					WITH memberCurrency=memcur
-	.			WHEN ireset EQ 0
-					API_MEMBER
-						WITH option='DELETE'
-						WITH dimension='Entity'
-						WITH sourcemember='DummyEntity'
-	.			ENDWHEN
-				COPYHTML Entity has been created with the following entities:</br>
-				FOR j,1,nrmems,1
-					msg=concat(memlst[j],' Created with Parent ',mempar[j],' and Currency ',memcur[j],'</br>')
-					COPYHTML #msg
-				ENDFOR
-				dumptime
-			ENDWHEN
-		ENDFOR
-	ENDWHEN
+.FOR imodels,1,1,1
+    WHEN lowercase(modelsdimEntity[imodels]) NE 'none'
+        PROJECT #_apilibrary
+        MODEL #models[imodels]
+        WHEN inlist('Entity', '_ModelDimensions',1, 'MATCH')
+            nrmembers=getMembers('entity','mxentList','mxentIsParentList','mxLevelList')
+            newlist=0
+            existing=0
+            SWITCH
+                CASE nrmembers EQ 0
+                    newlist=1
+                    existing=0
+                CASE lowercase(mxentList[1]) EQ 'dummyentity' AND nrmembers EQ 1
+                    newlist=1
+                    existing=1
+                OTHERWISE
+                    newlist=0
+                    existing=nrmembers
+            ENDSWITCH
+            DELETE VARIABLE memlst
+            DELETE VARIABLE mempar
+            DELETE VARIABLE memcur
+            nrmems=0
+            FOR igroup,1,ITEMSINFO('group','ITEMS'),1
+                msg=concat('Processing Group ',group[igroup],', For Project ',#_apilibrary,', Model ',models[imodels],'</br>')
+                COPYHTML #msg
+                dumptime
+                WHEN idump GT 0
+                    msg=concat('Update Type is ',#newlist,'</br>')
+                    COPYHTML #msg
+                    dumptime
+                    WHEN existing GT 0
+                        FOR j,1,nrmembers,1
+                            msg=concat('~ Entity is ',mxentlist[j],', Is Parent=',mxentIsParentList[j],',Level=',mxLevelList[j],'</br>')
+                            COPYHTML #msg
+                        ENDFOR
+                    ENDWHEN
+                ENDWHEN
+                dumptime
+    .// build arrays with the new structure
+                WHEN lowercase(modelsdimEntity[imodels]) EQ 'full'
+                    nrmems=nrmems+1
+                    memlst[nrmems]=groupname[igroup]
+                    memcur[nrmems]=groupcurrency[igroup]
+                    mempar[nrmems]=' '
+                ENDWHEN
+                WHEN lowercase(modelsdimEntity[imodels]) EQ 'full' OR lowercase(modelsdimEntity[imodels]) EQ 'elimnode' OR lowercase(modelsdimEntity[imodels]) EQ 'leafelim'
+                    nrmems=nrmems+1
+                    memlst[nrmems]=concat(groupname[igroup],' ',txtelims)
+                    memcur[nrmems]=groupcurrency[igroup]
+                    WHEN lowercase(modelsdimEntity[imodels]) EQ 'leafelim'
+                        mempar[nrmems]=' '
+                    ELSE
+                        mempar[nrmems]=groupname[igroup]
+                    ENDWHEN
+                ENDWHEN
+                WHEN lowercase(modelsdimEntity[imodels]) EQ 'full'
+                    nrmems=nrmems+1
+                    memlst[nrmems]=concat(group[igroup],' ',txtnoelims)
+                    memcur[nrmems]=groupcurrency[igroup]
+                    mempar[nrmems]=groupname[igroup]
+                ENDWHEN
+                FOR j,1,ITEMSINFO('entity','ITEMS'),1
+                    WHEN lowercase(entitygroup[j]) EQ lowercase(group[igroup])
+                        nrmems=nrmems+1
+                        memlst[nrmems]=entity[j]
+                        memcur[nrmems]=entitycurrency[j]
+                        SWITCH
+                            CASE lowercase(modelsdimEntity[imodels]) EQ 'leaf'
+                                mempar[nrmems]=' '
+                            CASE lowercase(modelsdimEntity[imodels]) EQ 'full'
+                                mempar[nrmems]=concat(entitygroup[j],' ',txtnoelims)
+                            CASE lowercase(modelsdimEntity[imodels]) EQ 'elimnode'
+                                mempar[nrmems]=concat(groupname[igroup],' ',txtelims)
+                        ENDSWITCH
+                    ENDWHEN
+                ENDFOR
+                dumptime
+                WITH checkpoint='Arrays Built Now Update'
+        .// If it is a new list just add and delete the dummyentity marker
+                WHEN newlist EQ 1 OR ireset EQ 1
+                    WHEN ireset EQ 1 AND nrmembers GT 1
+                        delix=0
+                        delete variable templst
+                        FOR j,2,nrmembers,1
+                            delix=delix+1
+                            templst[delix]=mxentlist[j]
+                        ENDFOR
+                        tempcnt=ITEMSINFO('templst','ITEMS')
+    .					COPYHTML Temp Count is
+    .					COPYHTML #tempcnt
+    .					COPYHTML </BR>
+                        FOR ix,1,tempcnt,1
+                            msg=concat('Attempting to delete ',templst[ix],'</br>')
+                            COPYHTML #msg
+                        ENDFOR
+
+                        PROJECT #_apilibrary
+                        MODEL #models[imodels]
+                        API_MEMBER
+                                WITH option='DELETE'
+                                WITH dimension='Entity'
+                                WITH sourcemember=templst
+                        CLOSE DATABASE
+                        COPYHTML Exit from API-Member to delete members
+                        PROJECT #_apilibrary
+                        MODEL #models[imodels]
+                        dumptime
+                        WITH checkpoint='Existing Members Deleted at'
+                        API_MEMBER
+                            WITH option='RENAME'
+                            WITH dimension='Entity'
+                            WITH sourcemember=mxentlist[1]
+                            WITH destinationmember='DummyEntity'
+                        dumptime
+                        WITH checkpoint='Renamed DummyEntity'
+                    ENDWHEN
+                    API_MEMBER
+                        WITH option='ADD'
+                        WITH dimension='Entity'
+                        WITH sourcemember=memlst
+                        WITH parent=mempar
+                        WITH memberCurrency=memcur
+        .			WHEN ireset EQ 0
+                        API_MEMBER
+                            WITH option='DELETE'
+                            WITH dimension='Entity'
+                            WITH sourcemember='DummyEntity'
+        .			ENDWHEN
+                    COPYHTML Entity has been created with the following entities:</br>
+                    FOR j,1,nrmems,1
+                        msg=concat(memlst[j],' Created with Parent ',mempar[j],' and Currency ',memcur[j],'</br>')
+                        COPYHTML #msg
+                    ENDFOR
+                    dumptime
+                ENDWHEN
+            ENDFOR
+        ENDWHEN
+    ENDWHEN
 ENDFOR
 taskstatus=1
 FORMAT DATE 'DD-MM-YYYY' FOR _today
@@ -148,10 +168,10 @@ RETURN
 PROCEDURE dumptime
 DEFAULT checkpoint='Time is'
 WHEN idump GT 0
-	snaptime=_TIME
-	FORMAT '99:99:99' for snaptime
-	DECODE snaptime into txtTime TYPE TEXT AT 1 TO 8
-	msg=concat(checkpoint,' ',txtTime,'</br>')
-	COPYHTML #msg
+    snaptime=_TIME
+    FORMAT '99:99:99' for snaptime
+    DECODE snaptime into txtTime TYPE TEXT AT 1 TO 8
+    msg=concat(checkpoint,' ',txtTime,'</br>')
+    COPYHTML #msg
 ENDWHEN
 RETURN

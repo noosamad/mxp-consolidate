@@ -14,80 +14,87 @@ READ STORAGE
 .//  see if a button pressed from before, output nothing
 .//  and run the task
 .//
+READ FORM
 mxorequested = getFormText('mxorequested','')
 cmdx = 'NothingProc'
 when mxorequested ne ''
     decode mxorequested into nr type value
-        cmdx=mxoName[nr]        
-.       ##cmdx
-taskstatus=0
-taskstatdesc=' '
-depstat=0
-   SWITCH      
-       CASE nr EQ 1
-       	       CheckDependency
-       	       WHEN statblock NE 1
-               UpdateEntities
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc
-               ENDWHEN
-       CASE nr EQ 2
-               	CheckDependency
-               	WHEN statblock NE 1
-       		CreateCCOATable
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc  
-               	ENDWHEN
-       CASE nr EQ 3
-	       CheckDependency
-	       WHEN statblock NE 1
-               CreatePnL
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc
-               ENDWHEN
-       CASE nr EQ 4
-	       CheckDependency
-	       WHEN statblock NE 1
-       	       CreateBS
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc
-               ENDWHEN
-       CASE nr EQ 5
-	       CheckDependency
-	       WHEN statblock NE 1
-       		CreateOB
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc 
-               	ENDWHEN
-       CASE nr EQ 6
-	       CheckDependency
-	       WHEN statblock NE 1
-               CreateElims
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc 
-               	ENDWHEN
-       CASE nr EQ 7
-	       CheckDependency
-	       WHEN statblock NE 1
-               CreateTB
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc   
-               ENDWHEN
-       CASE nr EQ 8
-	       CheckDependency
-	       WHEN statblock NE 1
-               CreateElimFlags
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc
-               ENDWHEN
-       CASE nr EQ 9
-	       CheckDependency
-	       WHEN statblock NE 1
-               LoadOrigCOA
-               	WITH taskstatus AS taskstatus
-               	WITH taskstatdesc AS taskstatdesc  
-               ENDWHEN
-   ENDSWITCH
+        cmdx=mxoName[nr]
+        taskstatus=0
+        taskstatdesc=' '
+        depstat=0
+        CheckDependency
+        WHEN statblock NE 1
+              	#cmdx
+              		WITH taskstatus AS taskstatus
+              		WITH taskstatdesc AS taskstatdesc
+              		WITH taskid = nr
+        ENDWHEN
+.   SWITCH      
+.       CASE nr EQ 1
+.       	       CheckDependency
+.       	       WHEN statblock NE 1
+.               UpdateEntities
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc
+.               ENDWHEN
+.       CASE nr EQ 2
+.               	CheckDependency
+.               	WHEN statblock NE 1
+.       		CreateCCOATable
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc  
+.               	ENDWHEN
+.       CASE nr EQ 3
+.	       CheckDependency
+.	       WHEN statblock NE 1
+.               CreatePnL
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc
+.               ENDWHEN
+.       CASE nr EQ 4
+.	       CheckDependency
+.	       WHEN statblock NE 1
+.       	       CreateBS
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc
+.               ENDWHEN
+.       CASE nr EQ 5
+.	       CheckDependency
+.	       WHEN statblock NE 1
+.       		CreateOB
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc 
+.               	ENDWHEN
+.       CASE nr EQ 6
+.	       CheckDependency
+.	       WHEN statblock NE 1
+.               CreateElims
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc 
+.               	ENDWHEN
+.       CASE nr EQ 7
+.	       CheckDependency
+.	       WHEN statblock NE 1
+.               CreateTB
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc   
+.               ENDWHEN
+.       CASE nr EQ 8
+.	       CheckDependency
+.	       WHEN statblock NE 1
+.               CreateElimFlags
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc
+.               ENDWHEN
+.       CASE nr EQ 9
+.	       CheckDependency
+.	       WHEN statblock NE 1
+.               LoadOrigCOA
+.               	WITH taskstatus AS taskstatus
+.               	WITH taskstatdesc AS taskstatdesc  
+.               ENDWHEN
+.   ENDSWITCH
 taskstat[nr]=taskstatus
 taskstatmsg[nr]=taskstatdesc
 _STORAGE='setuptask'
@@ -107,7 +114,8 @@ Procedure showOptions
 .//
 .// Display a table of buttons
 .//
-startform
+STARTFORM
+
 COPYHTML <input type="hidden" name="mxorequested" value="">
 .// Main header
 cubeLen = 4
