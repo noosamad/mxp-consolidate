@@ -46,12 +46,12 @@ FOR i,1,ITEMSINFO('EntList','ITEMS'),1
 	WHILE _READEXIST
 		READ DOS line
 		newline=stringreplace(line,specchar,'-')
-		WHEN PARSECSV(newline,'TEXT',1) NE 'Account'
+		WHEN PARSECSV(newline,'TEXT',2) NE 'Account'
 			recs=recs+1
 			series0[recs]=0
-			series1[recs]=PARSECSV(newline,'TEXT',3)
-			series2[recs]=PARSECSV(newline,'TEXT',1)
-			accdesc=PARSECSV(newline,'TEXT',1)
+			series1[recs]=PARSECSV(newline,'TEXT',6)
+			series2[recs]=PARSECSV(newline,'TEXT',2)
+			accdesc=PARSECSV(newline,'TEXT',2)
 			x=sizeof(accdesc)
 			y=instring(':',accdesc)
 				WHILE y GT 0 AND y LT x

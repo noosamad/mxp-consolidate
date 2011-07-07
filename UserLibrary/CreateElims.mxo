@@ -56,12 +56,7 @@ FOR j,1,nritems,1
             mhide[mcount]='showData'
             mbold[mcount]=0
             mexpression[mcount]=' '
-            SWITCH
-                CASE accflag[j] EQ 1
-                        curtransexp=concat(curtransexp,'-',quot,accname[j],quot)
-                CASE accflag[j] EQ -1
-                        curtransexp=concat(curtransexp,'+',quot,accname[j],quot)
-            ENDSWITCH
+            curtransexp=concat(curtransexp,'-',quot,accname[j],quot)
     ENDWHEN
 ENDFOR
 ... Create the eliminations model

@@ -1,4 +1,4 @@
-﻿PROCEDURE reportScript
+﻿PROCEDURE LoadMovementsData
 API_START
 DEFAULT CurVersion = 'Actual'
 DEFAULT maxdumprecs=50
@@ -54,7 +54,7 @@ FOR ictr,1,ITEMSINFO('EntList','ITEMS'),1
 				line=newline
 				i=i+1
 				SWITCH
-					CASE PARSECSV(line,'TEXT',3) EQ ' ' OR PARSECSV(line,'TEXT',3) EQ 'Account'
+					CASE PARSECSV(line,'TEXT',2) EQ ' ' OR PARSECSV(line,'TEXT',2) EQ 'Date'
 						WHEN i LT maxdumprecs
 							msg=CONCAT('Record number ',i,' skipped')
 							COPYHTML #msg
