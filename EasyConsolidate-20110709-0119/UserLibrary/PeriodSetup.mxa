@@ -1,0 +1,26 @@
+﻿PROCEDURE PeriodSetup
+API_START
+_STORAGE='defaults'
+READ STORAGE
+PROJECT #_apilibrary
+startmonth=INLIST(fystartmonth,'monthname',1,'MATCH')
+startyear=fystartyear
+FOR i,1,12,1
+	mnr=(i+startmonth-1)-(12*((i+startmonth-1) GT 12))
+	yr=startyear+(1*((i+startmonth-1) GT 12))
+	colname[i]=concat(monthname[mnr],'-',yr)
+	periodorder[i]=i
+ENDFOR
+colname[13]=concat('FYE ',yr)
+periodorder[13]=13
+API_PERIODSET
+WITH option = 'MODIFY'
+WITH sourcePeriodSet='Monthly'
+WITH isSourceLocal=1
+WITH sourceProject = #_apilibrary
+WITH periodNames=colname
+WITH nrOfPeriods=13
+WITH periodOrder=periodorder
+API_END
+COPYHTML The Monthly PeriodSet has been updated </BR>
+RETURN

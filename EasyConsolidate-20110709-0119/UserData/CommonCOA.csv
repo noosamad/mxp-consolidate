@@ -13,15 +13,15 @@ Number,Description,Category,Section,Type,Parent,Account Type
 1340,Deposits,BS,Other Current Assets,Detail,Other Current Assets,1
 1350,Accrued Revenue,BS,Other Current Assets,Detail,Other Current Assets,1
 1400,Directors Loans,BS,Other Current Assets,Summary,Other Current Assets,1
-1410,Director 1,BS,Other Current Assets,Detail,1400 - Directors Loans,1
-1420,Director 2,BS,Other Current Assets,Detail,1400 - Directors Loans,1
-1430,Director 3,BS,Other Current Assets,Detail,1400 - Directors Loans,1
+1410,G C Parsons,BS,Other Current Assets,Detail,1400 - Directors Loans,1
+1420,G Wilk,BS,Other Current Assets,Detail,1400 - Directors Loans,1
+1430,T Lo,BS,Other Current Assets,Detail,1400 - Directors Loans,1
 1490,Directors Loans - Non Specific,BS,Other Current Assets,Detail,1400 - Directors Loans,1
 1500,Loans To Affiliates,BS,Other Current Assets,Summary,Other Current Assets,1
-1510,ABC Australia,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
-1520,ABC HK,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
-1530,ABC Singapore,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
-1540,New Venture,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1510,Maxiplan Australia,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1520,Maxiplan HK,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1530,Maxiplan Singapore,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
+1540,Maxiplan UK,BS,Other Current Assets,Detail,1500 - Loans To Affiliates,1
 1580,Loans Other,BS,Other Current Assets,Detail,Other Current Assets,1
 1590,Undeposited Funds,BS,Other Current Assets,Detail,Other Current Assets,1
 1610,Office Equipment,BS,Fixed Assets,Summary,Fixed Assets,1
@@ -36,16 +36,16 @@ Number,Description,Category,Section,Type,Parent,Account Type
 2010,Trade Creditors,BS,Payables,Detail,Payables,-1
 2020,Other Creditors,BS,Payables,Detail,Payables,-1
 2100,Loans From Affiliates,BS,Other Current Liability,Summary,Other Current Liability,-1
-2110,Loans - ABC Australia,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
-2120,Loans - ABC HK,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
-2130,Loans - ABC Singapore,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
-2140,Loans - ABC UK,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
-2150,Loans - XYZ Company,BS,Other Current Liability,Detail,Other Current Liability,-1
-2160,Loans - ITH Company,BS,Other Current Liability,Detail,Other Current Liability,-1
+2110,Loans - Maxiplan Australia,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2120,Loans - Maxiplan HK,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2130,Loans - Maxiplan Singapore,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2140,Loans - Maxiplan UK,BS,Other Current Liability,Detail,2100 - Loans From Affiliates,-1
+2150,Loans - Satoluja,BS,Other Current Liability,Detail,Other Current Liability,-1
+2160,Loans - ITH,BS,Other Current Liability,Detail,Other Current Liability,-1
 2190,Loans from Affilites - Non Specific,BS,Other Current Liability,Detail,Other Current Liability,-1
 2200,Directors Loans,BS,Other Current Liability,Summary,Other Current Liability,-1
-2210,Loans - Director 1,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
-2220,Loans - Director 2,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
+2210,Loans - G C Parsons,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
+2220,Loans - G Wilk,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
 2290,Loans - Directors Other,BS,Other Current Liability,Detail,2200 - Directors Loans,-1
 2310,Prepaid Maintenance,BS,Other Current Liability,Detail,Other Current Liability,-1
 2410,Payroll Liabilities,BS,Other Current Liability,Detail,Other Current Liability,-1

@@ -140,7 +140,7 @@ function deleteEntity(myForm,jsEntity){
 #htmlMsg
 #errorHTML
 <table width=80% border="0" cellspacing="0" cellpadding="2">
- <th colspan=6 bgcolor=#CCC0C0>Entity Information</th>
+ <tr colspan=6 bgcolor=#CCC0C0>Entity Information</tr>
  <tr bgcolor=#DCDCDC>
   <td>Entity Name</td>
   <td>Group</td>

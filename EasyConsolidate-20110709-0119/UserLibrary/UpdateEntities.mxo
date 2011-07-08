@@ -17,8 +17,8 @@ READ STORAGE
 _STORAGE='models'
 READ STORAGE
 dumptime
-FOR imodels,1,ITEMSINFO('models','ITEMS'),1
-.FOR imodels,1,1,1
+.FOR imodels,1,ITEMSINFO('models','ITEMS'),1
+FOR imodels,2,2,2
     WHEN lowercase(modelsdimEntity[imodels]) NE 'none'
         PROJECT #_apilibrary
         MODEL #models[imodels]

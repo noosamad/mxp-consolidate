@@ -1,0 +1,157 @@
+PROCEDURE ReportScript
+API_START
+DEFAULT submit = ''
+savStorage = _STORAGE
+_STORAGE='defaults'
+READ STORAGE
+status[1]=' '
+status[2]=' '
+status[3]=' '
+submit = GETFORMTEXT('submit','')
+WHEN submit EQ 'SAVE'
+.// Retrieve form values if they have been entered
+	newmastercurrency = GETFORMTEXT('MasterCurrency','')
+	newfystartmonth = GETFORMTEXT('StartMonthFY','')
+	newstartyearfy = GETFORMTEXT('StartYearFY','')
+	resetmode = GETFORMTEXT('ResetMode','')
+	status[1]='Defaults Updated</br>'
+	WHEN newmastercurrency NE mastercurrency
+		mastercurrency = newmastercurrency
+		status[2]='</br>You have modified the Master Currency. Be sure to run the Update Entities Dimension task in Setup before continuing</br>'
+	ENDWHEN
+	DECODE newstartyearfy INTO newfystartyear TYPE VALUE
+	WHEN newfystartmonth NE fystartmonth OR newfystartyear NE fystartyear
+		fystartmonth = newfystartmonth
+		fystartyear = newfystartyear
+		status[3]='</br>You have modified the Consolidation Start Month or Start Year. Please make sure you run the Period Set Update before continuing</br>'
+	ENDWHEN
+	DECODE resetmode INTO ireset TYPE VALUE
+	xx = WRITEINFO('mastercurrency','mastercurrency')
+	xx = WRITEINFO('fystartmonth','fystartmonth')
+	xx = WRITEINFO('fystartyear','fystartyear')
+	xx = WRITEINFO('ireset','ireset')
+
+ENDWHEN
+STARTFORM
+USING 'COPYHTML'
+<SCRIPT LANGUAGE="JavaScript">
+</SCRIPT>
+</HEAD>
+<BODY>
+<b>MODIFY SETTINGS</b>
+<div><table width=500 border=0 cellpadding=2 bordercolor="#f0f0f0" cellspacing=0 bgcolor="#3366ff">
+<tr colspace="2" bgcolor="#000080" ><td colspace="2"><font color="#FFFFFF"><B>CONSOLIDATION SETTINGS</b></font></td><td></td></tr>
+<tr valign=top>
+<td width=250><font size=2 color="#000000" face="Arial">
+<div><font color="#ffffff"><b>Master Currency</b></font></div>
+</font>
+</td>
+<td width=250>
+<select name="Mastercurrency">
+ENDUSING
+FOR j,1,ITEMSINFO('currencyname','ITEMS'),1
+	WHEN currencyname[j] EQ mastercurrency
+		line='<option selected '
+	ELSE
+		line='<option '
+	ENDWHEN
+	line=concat(line,'value="',currencyname[j],'">',currencydesc[j],'</option>')
+	COPYHTML #line
+ENDFOR
+COPYHTML </select><br />
+USING 'COPYHTML'
+</td>
+</tr>
+<tr valign=top>
+<td width=250><font size=2 color="#000000" face="Arial">
+<div><font color="#ffffff"><b>Start Month Consolidation FY</b></font></div>
+</font>
+</td>
+<td width=250><select name="StartMonthFY">
+ENDUSING
+FOR j,1,ITEMSINFO('monthname','ITEMS'),1
+	WHEN monthname[j] EQ fystartmonth
+		line='<option selected '
+	ELSE
+		line='<option '
+	ENDWHEN
+	line=concat(line,'value="',monthname[j],'">',monthname[j],'</option>')
+	COPYHTML #line
+ENDFOR
+USING 'COPYHTML'
+</select><br />
+</td>
+</tr>
+<tr valign=top>
+<td width=250><font size=2 color="#000000" face="Arial">
+<div><font color="#ffffff"><b>Start Year Consolidation FY</b></font></div>
+</font>
+</td>
+<td width=250><select name="StartYearFY">
+ENDUSING
+curyear=DATEINFO(_today,'YEAR')
+FOR j,1,10,1
+	optyear=curyear-3+j
+	WHEN optyear EQ fystartyear
+		line='<option selected '
+	ELSE
+		line='<option '
+	ENDWHEN
+	line=concat(line,'value="',optyear,'">',optyear,'</option>')
+	COPYHTML #line
+ENDFOR
+USING 'COPYHTML'
+</select></br></br>
+</td>
+</tr>
+<tr colspace="2" bgcolor="#000080" ><td colspace="2"><font color="#FFFFFF"><B>OTHER SETTINGS</b></font></td><td></td></tr>
+<tr valign=top>
+<td width=250><font size=2 color="#000000" face="Arial">
+<div><font color="#ffffff"><b>Reset Mode</b></br></font></div>
+</font>
+</td>
+<td>
+<input name="ResetMode" type="radio" 
+ENDUSING
+WHEN ireset EQ 1
+	str='checked value="1"><font size=2 color="#ffffff" face="Arial">Yes     </font>'
+ELSE 
+	str='value="1"><font size=2 color="#ffffff" face="Arial">Yes     </font>'
+ENDWHEN
+COPYHTML #str
+COPYHTML <input name="ResetMode" type="radio" 
+WHEN ireset EQ 0
+	str='checked value="0"><font size=2 color="#ffffff" face="Arial">No     </font>'
+ELSE 
+	str='value="0"><font size=2 color="#ffffff" face="Arial">No     </font>'
+ENDWHEN
+COPYHTML #str
+USING 'COPYHTML'
+</td>
+</tr>
+<tr></br><td></td></tr>
+</table>
+<input type="submit" value="SAVE" name="SUBMIT">
+<input type="reset" value="RESET" name="RESET">
+</div>
+</font>
+ENDUSING
+WHEN status[2] NE ' ' OR status[3] NE ' '
+USING 'COPYHTML'
+	<div><table width=500 border=1 cellpadding=2 bordercolor="#ff0000" cellspacing=0 bgcolor="#ffffff">
+	<tr valign=top>
+	<td><font color="#ff0000"></br>
+	#status[1]
+	#status[2]
+	#status[3]
+	</font><br />
+	</td>
+	</tr>
+	</table>
+ENDUSING
+ENDWHEN
+COPYHTML </FORM></table></body>
+
+API_END
+RETURN
+
